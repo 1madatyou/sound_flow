@@ -13,3 +13,14 @@ header {
     padding: 15px 0;
     background: #FFF;
 }
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
