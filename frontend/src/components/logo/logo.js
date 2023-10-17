@@ -2,9 +2,9 @@ import "./logo.css"
 
 function Logo() {
     return (
-        <div className="logo">
+        <span className="logo">
             SoundFlow
-        </div>       
+        </span>       
     );
 }
 

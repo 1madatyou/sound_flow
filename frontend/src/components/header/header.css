@@ -1,9 +1,15 @@
 header {
     display: flex;
-    width: 1440px;
-    height: 57px;
-    padding: 14px 1251px 15px 79px;
+    justify-content: center;
     align-items: center;
     flex-shrink: 0;
+
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+
+    height: 57px;
+    padding: 15px 0;
     background: #FFF;
 }

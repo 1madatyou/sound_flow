@@ -5,7 +5,9 @@ import "./header.css"
 function Header() {
     return (
         <header>
-            <Logo/>
+            <div className="wrapper">
+                <Logo/>
+            </div>
         </header>
     );
 }
