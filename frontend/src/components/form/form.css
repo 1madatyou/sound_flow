@@ -1,0 +1,31 @@
+
+.form {
+    margin: 250px auto 0;
+    width: 450px;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 17px 97px;
+    flex-wrap: wrap;
+
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.form__header {
+    color: #000;
+
+    text-align: center;
+
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
