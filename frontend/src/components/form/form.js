@@ -1,5 +1,6 @@
 import "./form.css"
 import Input from "../input/input";
+import Button from "../button/button";
 
 function Form({header}) {
     return (
@@ -16,7 +17,7 @@ function Form({header}) {
             </div>
 
             <div className="form__button-wrapper">
-                
+                <Button text="Sign in"/>
             </div>
         </form>
     );

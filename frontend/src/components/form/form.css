@@ -28,4 +28,11 @@
 .form__button-wrapper {
     display: flex;
     justify-content: space-between;
+    margin-top: 35px;
+}
+
+.input-list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
 }

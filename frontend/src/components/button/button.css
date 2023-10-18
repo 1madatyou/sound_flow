@@ -1,10 +1,19 @@
 
 .btn {
     display: flex;
-    padding: 3px 31px 5px 32px;
+    padding: 3px 40px 5px 40px;
     justify-content: center;
     align-items: center;
 
     border-radius: 7px;
+    border: 0;
     background: #91C0AE;
+
+    color: #000;
+
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
