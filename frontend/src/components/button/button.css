@@ -1,11 +1,11 @@
 
 .btn {
     display: flex;
-    padding: 3px 40px 5px 40px;
+    padding: 0 40px;
     justify-content: center;
     align-items: center;
 
-    border-radius: 7px;
+    border-radius: 10px;
     border: 0;
     background: #91C0AE;
 
@@ -15,5 +15,5 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
+    line-height: 0;
 }
