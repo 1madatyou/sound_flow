@@ -17,3 +17,7 @@
     font-weight: 500;
     line-height: 0;
 }
+
+.btn--gray {
+    background-color: #C9C9C9;
+}

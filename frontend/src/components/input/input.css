@@ -3,11 +3,10 @@
     color: #000;
 
     height: 24px;
-    width: 100%;
-    padding: 5px 6px 6px 6px;
+    padding: 5px 10px;
     align-items: center;
 
-    border-radius: 5px;
+    border-radius: 7px;
     border: 0 solid #91C0AE;
 
     background: #EDEEF0;
@@ -32,7 +31,6 @@
 .input-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .input-header {

@@ -14,6 +14,7 @@ function Form({header}) {
                 <Input
                     name="password"
                     type="password"/>    
+
             </div>
 
             <div className="form__button-wrapper">
