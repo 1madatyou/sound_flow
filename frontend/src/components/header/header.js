@@ -1,6 +1,6 @@
 import Logo from "../logo/logo";
 import SideButton from "./side-button/side-button"
-import "./header.css"
+import "./header.scss"
 
 
 function Header() {

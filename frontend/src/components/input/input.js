@@ -1,4 +1,4 @@
-import "./input.css"
+import "./input.scss"
 
 
 function Input({name, name_attribute, type_attribute}) {

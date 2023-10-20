@@ -1,4 +1,4 @@
-import "./form.css"
+import "./form.scss"
 import Input from "../input/input";
 import Button from "../button/button";
 
@@ -20,8 +20,8 @@ function Form({header}) {
             <div className="form__button-wrapper">
                 <Button text="Sign in"/>
                 <div className="form__links">
-                    <a href="#" className="a">Sign up</a>
-                    <a href="#" className="a">Restore access</a>
+                    <a href="/" className="a">Sign up</a>
+                    <a href="/" className="a">Restore access</a>
                 </div>
             </div>
         </form>

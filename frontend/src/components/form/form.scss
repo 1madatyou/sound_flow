@@ -1,0 +1,39 @@
+
+.form {
+    margin: 250px auto 0;
+    width: 450px;
+    padding: 20px 40px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 17px 97px;
+    flex-wrap: wrap;
+
+    border-radius: 10px;
+    background: #FFF;
+
+    &__header {
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    &__button-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 35px;
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.input-list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+

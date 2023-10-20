@@ -12,11 +12,11 @@
     height: 57px;
     padding: 15px 0;
     background: #FFF;
-}
 
-.header__content {
-    display: flex;
-    justify-content: space-between;
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .side-buttons {

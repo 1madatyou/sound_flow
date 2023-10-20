@@ -1,4 +1,4 @@
-import "./side-button.css"
+import "./side-button.scss"
 
 function SideButton({text}) {
     return (

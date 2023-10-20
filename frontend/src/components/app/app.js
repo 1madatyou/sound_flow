@@ -3,7 +3,7 @@ import Footer from "../footer/footer"
 import Form from "../form/form"
 
 
-import "./app.css"
+import "./app.scss"
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </div>
       </main>
 
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }

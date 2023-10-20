@@ -1,23 +1,21 @@
-
 .btn {
     display: flex;
     padding: 0 40px;
     justify-content: center;
     align-items: center;
-
     border-radius: 10px;
     border: 0;
     background: #91C0AE;
-
     color: #000;
-
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: 0;
-}
 
-.btn--gray {
-    background-color: #C9C9C9;
+    cursor: pointer;
+
+    &--gray {
+        background-color: #C9C9C9;
+    }
 }
