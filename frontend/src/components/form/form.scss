@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 
 .form {
     margin: 250px auto 0;
@@ -10,10 +12,10 @@
     flex-wrap: wrap;
 
     border-radius: 10px;
-    background: #FFF;
+    background: $white;
 
     &__header {
-        color: #000;
+        color: $black;
         text-align: center;
         font-family: Inter;
         font-size: 30px;
@@ -27,8 +29,19 @@
         margin-top: 35px;
     }
     &__links {
-        display: flex;
-        flex-direction: column;
+
+        &-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+
+            background-color: $grey;
+            padding: 0 30px;
+            border-radius: 7px;
+
+        }
+
     }
 }
 .input-list {

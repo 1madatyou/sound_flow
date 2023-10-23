@@ -1,5 +1,5 @@
 import Logo from "../logo/logo";
-import SideButton from "./side-button/side-button"
+import Button from "../button/button"
 import "./header.scss"
 
 
@@ -15,8 +15,8 @@ function Header() {
                     </div>
 
                     <div className="side-buttons">
-                        <SideButton text="My Profile"/>
-                        <SideButton text="Leave"/>
+                        <Button text="My profile"/>
+                        <Button text="Leave"/>
                     </div>
                 </div>
             </div>

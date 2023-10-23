@@ -10,17 +10,20 @@ function Form({header}) {
             <div className="input-list">
                 <Input
                     name="email"
-                    type="email"/>
+                    name_attribute="email"
+                    type_attribute="email"/>
                 <Input
                     name="password"
-                    type="password"/>    
+                    name_attribute="password"
+                    type_attribute="password"/>    
 
             </div>
 
             <div className="form__button-wrapper">
                 <Button text="Sign in"/>
-                <div className="form__links">
+                <div className="form__links-wrapper">
                     <a href="/" className="a">Sign up</a>
+                    <span>·</span>
                     <a href="/" className="a">Restore access</a>
                 </div>
             </div>
