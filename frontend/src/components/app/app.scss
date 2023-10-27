@@ -36,12 +36,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        
     }
 
     &-column {
         display: inline-flex;
         flex-direction: column;
         gap: 16px;
+
+        &:nth-child(2) {
+            align-self: flex-start;
+        }
     }
 
     &-content-img {
@@ -118,7 +124,8 @@
 
 .large-btn {
 
-    
+    position: relative;
+
     width: 425px;
     height: 149px;
     padding: 15px 64px;
@@ -135,31 +142,33 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    
     cursor: pointer;
+    transition: color 0.5s;
 
     &:hover {
         color: $light-green;
         background-color: $black;
-        transition: color 0.5s ease, background-color 0.5s ease
+        transition: color 0.5s ease, background-color 0.5s ease;
         
+        .large-btn-cursor {
+            fill: $light-green;
+        }
+
     }
 
-    &:not(:hover) {
-        transition: color 0.5s
+    &-cursor {
+        position: absolute;
+        display: block;
+
+        width: 128px;
+        height: 128px;
+
+        right: -8px;
+        top: 67px;
+        content: url("../../resources/img/icons/cursor.svg");
+        transition: fill 0.5s;
+
     }
-
-    // &::after {
-    //     position: relative;
-    //     display: block;
-
-    //     width: 128px;
-    //     height: 128px;
-
-    //     left: 196px;
-    //     top: 10px;
-    //     content: url("../../resources/img/icons/cursor.svg");
-    // }
 }
 
 .text {
