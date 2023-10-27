@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="wrapper">
-                <div className="github-icon"></div>
+                <a className="github-icon" href='https://github.com/1madatyou'></a>
             </div>
         </footer>
     );

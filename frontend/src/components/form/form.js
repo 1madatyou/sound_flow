@@ -16,7 +16,6 @@ function Form({header}) {
                     name="password"
                     name_attribute="password"
                     type_attribute="password"/>    
-
             </div>
 
             <div className="form__button-wrapper">

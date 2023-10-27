@@ -4,17 +4,21 @@
     justify-content: center;
     align-items: center;
 
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
 }
 
 .github-icon {
+    display: block;
     margin: 0 auto;
-    width: 96px;
+    width: 98px;
     height: 96px;
+    opacity: 0.25;
     flex-shrink: 0;
+    cursor: pointer;
+    background: url('../../../public/github-mark.svg');
 
-    background: url('../../../public/GitHubIcon.svg');
+    &:hover {
+        opacity: 1;
+        transition: opacity 1s;
+    }
 }
