@@ -1,21 +1,13 @@
 import "./form.scss"
-import Input from "../input/input";
-import Button from "../button/button";
+import Button from "../../button/button";
 
-function Form({header}) {
+function Form({header, inputList}) {
     return (
         <form className="form">
             <h1 className="form__header">{header}</h1>
 
             <div className="input-list">
-                <Input
-                    name="email"
-                    name_attribute="email"
-                    type_attribute="email"/>
-                <Input
-                    name="password"
-                    name_attribute="password"
-                    type_attribute="password"/>    
+                {inputList}  
             </div>
 
             <div className="form__button-wrapper">

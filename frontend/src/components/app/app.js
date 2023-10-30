@@ -1,14 +1,19 @@
+import { useState } from "react"
+
 import Header from "../header/header"
 import Footer from "../footer/footer"
-import Form from "../form/form"
+import Modal from "../Modal/Modal"
 
 import soda_luv from "../../resources/img/home/soda_luv.png"
 import buda from "../../resources/img/home/buda.jpeg"
 
-
 import "./app.scss"
 
+
 function App() {
+
+  const [modalActive, setModalActive] = useState(true);
+
   return (
     <div className="app">
       <Header/>
@@ -70,13 +75,13 @@ function App() {
             <div className="join-block__wrapper">
 
               <div className="join-block__content">
-                <span className="text ">
+                <span className="text">
                   Join us.
                 </span>
                 <span className="sub-text">
                   Upload tracks, follow artists, create playlists. For free.
                 </span>
-                <button className="btn join-block-btn ">
+                <button className="btn join-block-btn " onClick={() => setModalActive(true)}>
                   Create account
                 </button>
               </div>
@@ -87,6 +92,7 @@ function App() {
       </main>
 
       <Footer/>
+      <Modal active={modalActive} setActive={setModalActive}/>
     </div>
   );
 }
