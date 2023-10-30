@@ -6,19 +6,27 @@ const AuthForm = () => {
 
     const header = 'Sign in to SoundFlow'
 
+    const formLinks = [
+        {'url': '/', 'text': 'Sign up'},
+        {'url': '/', 'text': 'Restore Access'},
+    ]
+
     const inputList = [
         <Input
-            name="email"
-            name_attribute="email"
-            type_attribute="email"/>,
+            headerName="email"
+            nameAttribute="email"
+            typeAttribute="email"/>,
         <Input
-            name="password"
-            name_attribute="password"
-            type_attribute="password"/>  
+            headerName="password"
+            nameAttribute="password"
+            typeAttribute="password"/>  
     ]
 
     return (
-        <Form header={header} inputList={inputList}></Form>
+        <Form header={header}
+              inputList={inputList} 
+              submitButtonText="Sign in"
+              formLinks={formLinks}></Form>
     )
 
 }

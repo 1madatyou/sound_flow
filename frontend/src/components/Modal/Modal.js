@@ -1,5 +1,8 @@
 import {React, useState} from 'react';
 import AuthForm from "../forms/authForm"
+import RegForm from "../forms/regForm"
+import RestoreAccessForm from '../forms/restoreAccessForm';
+
 
 import "./modal.scss"
 

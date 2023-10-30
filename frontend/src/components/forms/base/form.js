@@ -1,7 +1,9 @@
 import "./form.scss"
 import Button from "../../button/button";
+import FormLinks from "./formLinks"
 
-function Form({header, inputList}) {
+
+function Form({header, inputList, submitButtonText, formLinks}) {
     return (
         <form className="form">
             <h1 className="form__header">{header}</h1>
@@ -11,12 +13,10 @@ function Form({header, inputList}) {
             </div>
 
             <div className="form__button-wrapper">
-                <Button text="Sign in"/>
-                <div className="form__links-wrapper">
-                    <a href="/" className="a">Sign up</a>
-                    <span>·</span>
-                    <a href="/" className="a">Restore access</a>
-                </div>
+                <Button text={submitButtonText}/>
+
+                <FormLinks links={formLinks}/>
+                
             </div>
         </form>
     );
