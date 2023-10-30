@@ -1,35 +1,34 @@
-import {React, useState} from 'react';
+import { React } from 'react';
 import AuthForm from "../forms/authForm"
 import RegForm from "../forms/regForm"
 import RestoreAccessForm from '../forms/restoreAccessForm';
 
+import Loader from "../loader/loader"
 
 import "./modal.scss"
 
-const Modal = ({active, setActive, modalFormType}) => {
+const Modal = ({active, setActive, modalFormType, setModalFormType}) => {
 
-    const [currentForm, setCurrentForm] = useState();
+  const renderForm = () => {
+      switch (modalFormType) {
+        case "RegForm":
+          return <RegForm setForm={setModalFormType} />;
+        case "AuthForm":
+          return <AuthForm setForm={setModalFormType} />;
+        case "RestoreAccessForm":
+          return <RestoreAccessForm setForm={setModalFormType} />;
+        default:
+          return <Loader/>;
+      }
+  }
 
-    const renderForm = () => {
-        switch (currentForm) {
-          case "RegForm":
-            return <RegForm />;
-          case "AuthForm":
-            return <AuthForm />;
-          case "RestoreAccessForm":
-            return <RestoreAccessForm />;
-          default:
-            return null;
-        }
-    }
-
-    return (
-        <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
-            <div className={active ? "modal__content active" : "modal__content"} onClick={e => e.stopPropagation()}>
-                <AuthForm/>
-            </div>
-        </div>
-    )
+  return (
+      <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
+          <div className={active ? "modal__content active" : "modal__content"} onClick={e => e.stopPropagation()}>
+              {renderForm()}
+          </div>
+      </div>
+  )
 
 }
 

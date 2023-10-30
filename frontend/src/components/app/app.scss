@@ -18,6 +18,8 @@
     line-height: normal;
     text-decoration: none;
 
+    cursor: pointer;
+
     &:hover {
         color: $light-green;
         transition: color 0.5s

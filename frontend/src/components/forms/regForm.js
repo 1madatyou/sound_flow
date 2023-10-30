@@ -2,13 +2,13 @@ import Form from "./base/form"
 import Input from "../input/input";
 
 
-const RegForm = () => {
+const RegForm = ({setForm}) => {
 
     const header = 'Sign up to SoundFlow'
 
     const formLinks = [
-        {'url': '/', 'text': 'Sign in'},
-        {'url': '/', 'text': 'Restore Access'},
+        {'form': 'AuthForm', 'text': 'Sign in'},
+        {'form': 'RestoreAccessForm', 'text': 'Restore Access'},
     ]
 
     const inputList = [
@@ -36,7 +36,8 @@ const RegForm = () => {
             header={header} 
             inputList={inputList} 
             submitButtonText="Sign up"
-            formLinks={formLinks}></Form>
+            formLinks={formLinks}
+            setForm={setForm}></Form>
     )
 
 }

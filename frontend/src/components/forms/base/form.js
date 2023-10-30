@@ -3,7 +3,7 @@ import Button from "../../button/button";
 import FormLinks from "./formLinks"
 
 
-function Form({header, inputList, submitButtonText, formLinks}) {
+function Form({header, inputList, submitButtonText, formLinks, setForm}) {
     return (
         <form className="form">
             <h1 className="form__header">{header}</h1>
@@ -15,7 +15,8 @@ function Form({header, inputList, submitButtonText, formLinks}) {
             <div className="form__button-wrapper">
                 <Button text={submitButtonText}/>
 
-                <FormLinks links={formLinks}/>
+                <FormLinks links={formLinks}
+                           setForm={setForm}/>
                 
             </div>
         </form>

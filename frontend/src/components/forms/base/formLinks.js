@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const FormLinks = ({ links }) => {
+const FormLinks = ({ links, setForm }) => {
 
     return (
       <div className="form__links-wrapper">
@@ -9,7 +9,7 @@ const FormLinks = ({ links }) => {
 
           <React.Fragment key={index}>
             {index > 0 && <span>·</span>}
-            <a href={link.url} className="a">
+            <a onClick={() => setForm(link.form)} className="a">
               {link.text}
             </a>
           </React.Fragment>

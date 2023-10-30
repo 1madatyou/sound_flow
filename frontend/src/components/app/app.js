@@ -12,7 +12,28 @@ import "./app.scss"
 
 function App() {
 
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
+  const [currentModalForm, setCurrentModalForm] = useState();
+
+  function switchModalActive(modalActive, modalFormType) {
+    console.log(1)
+
+    if (modalActive) {
+      console.log(2)
+      setModalActive(true)
+      switchModalForm(modalFormType)
+    } else {
+      setModalActive(false)
+    }
+    console.log(3)
+  }
+
+  function switchModalForm(form) {
+    setCurrentModalForm(() => null)
+    setTimeout(() => {
+      setCurrentModalForm(() => form)
+    }, 1000)
+  }
 
   return (
     <div className="app">
@@ -38,7 +59,7 @@ function App() {
                 </div>
                 
                 <div className="music-block-column">
-                  <img src={soda_luv} alt="Artist image" className="music-block-content-img music-block-content-img--sodaluv"/>
+                  <img src={soda_luv} alt="Artist" className="music-block-content-img music-block-content-img--sodaluv"/>
                   <span className="text text--align-right"> Discover<br/>more </span>
                 </div>
 
@@ -46,7 +67,7 @@ function App() {
                   <span className="text text--align-left">
                     Follow your<br/>favourite<br/>artists
                   </span>
-                  <img src={buda} alt="Artist image" className="music-block-content-img music-block-content-img--buda"/>
+                  <img src={buda} alt="Artist" className="music-block-content-img music-block-content-img--buda"/>
                 </div>
 
               </div>
@@ -81,7 +102,7 @@ function App() {
                 <span className="sub-text">
                   Upload tracks, follow artists, create playlists. For free.
                 </span>
-                <button className="btn join-block-btn " onClick={() => setModalActive(true)}>
+                <button className="btn join-block-btn " onClick={() => switchModalActive(true, "AuthForm")}>
                   Create account
                 </button>
               </div>
@@ -92,7 +113,11 @@ function App() {
       </main>
 
       <Footer/>
-      <Modal active={modalActive} setActive={setModalActive}/>
+      <Modal 
+        active={modalActive} 
+        setActive={setModalActive}
+        modalFormType={currentModalForm}
+        setModalFormType={switchModalForm}/>
     </div>
   );
 }

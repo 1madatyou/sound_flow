@@ -2,13 +2,13 @@ import Form from "./base/form"
 import Input from "../input/input";
 
 
-const RestoreAccessForm = () => {
+const RestoreAccessForm = ({setForm}) => {
 
-    const header = 'Sign up to SoundFlow'
+    const header = 'Restore access'
 
     const formLinks = [
-        {'url': '/', 'text': 'Sign in'},
-        {'url': '/', 'text': 'Sign up'},
+        {'form': 'AuthForm', 'text': 'Sign in'},
+        {'form': 'RegForm', 'text': 'Sign up'},
     ]
 
     const inputList = [
@@ -23,7 +23,8 @@ const RestoreAccessForm = () => {
             header={header} 
             inputList={inputList} 
             submitButtonText="Send mail"
-            formLinks={formLinks}></Form>
+            formLinks={formLinks}
+            setForm={setForm}></Form>
     )
 
 }
