@@ -1,7 +1,7 @@
 import "./input.scss"
 
 
-function Input({headerName, headerAction, nameAttribute, typeAttribute}) {
+function Input({headerName, headerAction, nameAttribute, typeAttribute, value, onChange}) {
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -13,8 +13,10 @@ function Input({headerName, headerAction, nameAttribute, typeAttribute}) {
             <input 
                 className="input"
                 placeholder={placeholder}
+                value={value}
                 type={typeAttribute}
-                name={nameAttribute}/>
+                name={nameAttribute}
+                onChange={onChange}/>
         </div>
     );
 }

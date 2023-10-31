@@ -1,0 +1,198 @@
+@import '../../../variables.scss';
+
+.music-block {
+       
+    &__content {
+        padding: 37px 67px ;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        
+    }
+
+    &-column {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &:nth-child(2) {
+            align-self: flex-start;
+        }
+    }
+
+    &-content-img {
+        border-radius: 10px;
+
+        &--sodaluv {
+            width: 427px;
+            height: 427px;
+        }
+
+        &--buda {
+            width: 364px;
+            height: 430px;
+        }
+
+    }
+
+    &__wrapper {
+        width: 1334px;
+        height: 715px;
+        margin: 0 auto;
+    
+        border-radius: 0px 0px 30px 30px;
+        background: rgba(144, 192, 174, 0.25);
+    
+        mix-blend-mode: darken;
+    }
+
+    
+}
+
+.streams-block {
+
+    &__content {
+        padding: 165px 158px ;
+    }
+
+
+
+}
+
+.join-block {
+    
+    &__wrapper {
+        border-radius: 30px;
+        background: $white;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 60px 276px 134px;
+    }
+    
+    &-btn {
+
+        color: #000;
+
+        text-align: right;
+        font-family: Inter;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 15px;
+
+        height: 60px;
+
+        padding: 15px 46px 15px 54px;
+    }
+}
+
+.large-btn {
+
+    position: relative;
+
+    width: 425px;
+    height: 149px;
+    padding: 15px 64px;
+    
+    border: 0;
+    border-radius: 40px;
+    background-color: $light-green;
+
+    color: $black;
+
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    transition: color 0.5s;
+
+    &:hover {
+        color: $light-green;
+        background-color: $black;
+        transition: color 0.5s ease, background-color 0.5s ease;
+        
+        .large-btn-cursor {
+            fill: $light-green;
+        }
+
+    }
+
+    &-cursor {
+        position: absolute;
+        display: block;
+
+        width: 128px;
+        height: 128px;
+
+        right: -8px;
+        top: 67px;
+        content: url("../../../resources/img/icons/cursor.svg");
+        transition: fill 0.5s;
+
+    }
+}
+
+.text {
+    color: #000;
+
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    &--align {
+
+        &-right {
+            text-align: right;
+        }
+
+        &-left {
+            text-align: left;
+        }
+
+        &-center {
+            text-align: center;
+        }
+    }
+}
+
+.sub-text {
+    color: #000;
+
+    text-align: right;
+    font-family: Inter;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.large-text {
+
+    color: $black;    
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
+    &--green {
+        color: $light-green;
+    }
+
+    &-wrapper {
+        display: inline-block;
+    }
+}
