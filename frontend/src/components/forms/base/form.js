@@ -3,9 +3,12 @@ import Button from "../../button/button";
 import FormLinks from "./formLinks"
 
 
-function Form({header, inputList, submitButtonText, formLinks, setForm}) {
+function Form({header, inputList, submitButtonText, formLinks, setForm, onSubmit}) {
+
+ 
+    
     return (
-        <form className="form">
+        <form className="form" onSubmit={onSubmit}>
             <h1 className="form__header">{header}</h1>
 
             <div className="input-list">

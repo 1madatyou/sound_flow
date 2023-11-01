@@ -1,10 +1,14 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 
 import Form from "./base/form"
 import Input from "../input/input";
+import AuthContext from "../../utils/AuthContext";
 
 
 const AuthForm = ({setForm}) => {
+
+    const {loginUser} = useContext(AuthContext)
+
 
     const header = 'Sign in to SoundFlow'
     const formLinks = [
@@ -30,24 +34,13 @@ const AuthForm = ({setForm}) => {
             onChange={(e) => setPassword(e.currentTarget.value)}/>  
     ]
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     try {
-
-    //         const response = await axios.post("/api/login")
-
-    //     } catch (e) {
-
-    //     }
-    // }
-
     return (
         <Form header={header}
               inputList={inputList} 
               submitButtonText="Sign in"
               formLinks={formLinks}
-              setForm={setForm}></Form>
+              setForm={setForm}
+              onSubmit={loginUser}></Form>
     )
 
 }
