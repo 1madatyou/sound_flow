@@ -12,12 +12,11 @@ import "./app.scss"
 
 
 function App() {
-
+  
   const [modalActive, setModalActive] = useState(false);
   const [currentModalForm, setCurrentModalForm] = useState();
 
   function switchModalActive(modalActive, modalFormType) {
-
     if (modalActive) {
       setModalActive(true)
       switchModalForm(modalFormType)
@@ -46,7 +45,7 @@ function App() {
 
             <Route path='/' element={ <Navigate to="/home" /> }/>
             <Route path="/home" element={<HomePage switchModalActive={switchModalActive}/>}/>
-            
+
           </Routes>
 
           </div>
