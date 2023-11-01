@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import {jwtDecode} from "jwt-decode";
 
 
@@ -15,13 +15,13 @@ export const AuthProvider = ({children}) => {
     let [user, setUser] = useState(() => (
         localStorage.getItem('authTokens') ? jwtDecode(localStorage.getItem('authTokens')) : null
     ))
-    let [authTokens, setAuthTokens] = useState(() => (
-        localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
-    ))
+    let [authTokens, setAuthTokens] = useState(() => {
+        return localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
+    })
+
 
     let loginUser = async (e) => {
         e.preventDefault()
-        console.log(1)
         const response = await fetch('http://127.0.0.1:8000/api/v1/token/',
             {
                 method: "POST",
@@ -38,7 +38,6 @@ export const AuthProvider = ({children}) => {
         )
         
         let data = await response.json()
-        console.log(data)
 
         if (response.status === 200) {
             localStorage.setItem('authTokens', JSON.stringify(data));
@@ -52,13 +51,64 @@ export const AuthProvider = ({children}) => {
     }
 
     let logoutUser = (e) => {
-        console.log(2)
-        e.preventDefault()
+        if (e) {
+            e.preventDefault()
+        }
         localStorage.removeItem('authTokens')
         setAuthTokens(null)
         setUser(null)
         navigate('/home')
     }
+
+    const updateToken = async () => {
+
+        console.log("Состояние токенов:")
+        console.log(authTokens)
+
+        console.log(`Отправляем refresh ${JSON.stringify( {refresh: authTokens?.refresh} )}`)
+        const response = await fetch('http://127.0.0.1:8000/api/v1/token/refresh/', {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({refresh:authTokens?.refresh})
+        })
+
+        const data = await response.json()
+
+        console.log(`Получили ответ со статусом ${response.status} и данными`)
+        console.log(data)
+
+        if (response.status === 200) {
+            setAuthTokens({...authTokens, access: data.access})
+            setUser(jwtDecode(data.access))
+            localStorage.setItem('authTokens', JSON.stringify(data))
+
+            console.log(`Обновили токены:`)
+            console.log(authTokens)
+        } else {
+            logoutUser()
+        }
+    
+
+    }
+
+    useEffect(()=>{
+        const REFRESH_INTERVAL = 1000 * 60 * 4
+        // const REFRESH_INTERVAL = 1000 * 5
+
+        let interval = setInterval(()=>{
+            if(authTokens){
+                updateToken()
+            }
+        }, REFRESH_INTERVAL)
+
+        return () => {
+            console.log(3)
+            clearInterval(interval)
+        }
+
+    }, [authTokens])
 
     let contextData = {
         user: user,
