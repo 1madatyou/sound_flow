@@ -3,18 +3,22 @@ from django import forms
 from .models import User
 
 
-class LoginForm(forms.Form):
+class RegistrationForm(forms.Form):
+
+    password2 = forms.CharField(max_length=255)
 
     def clean(self):
-
         cd = self.cleaned_data
+
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError("passwords_mismatch")
         
-        try :
-            user = User.objects.get(email=cd['email'])
-            self.user_id = user.id 
-        except User.DoesNotExist:
-            raise forms.ValidationError("User doesn't exist")
+        
+        
+
+
+        
 
     class Meta:
-        Model = 'accounts.User'
-        fields = ["email, password"]
+        model = User
+        fields = ['username', 'email', 'password']
