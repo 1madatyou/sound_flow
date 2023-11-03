@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 
 import Form from "./base/form"
 import Input from "../input/input";
-import AuthContext from "../../utils/AuthContext";
+import AuthContext from "../../utils/context/AuthContext";
 
 
 const AuthForm = ({setForm}) => {

@@ -1,6 +1,7 @@
 import { React } from 'react';
 import AuthForm from "../forms/authForm"
 import RegForm from "../forms/regForm"
+import RegConfirmForm from '../forms/regConfirmForm';
 import RestoreAccessForm from '../forms/restoreAccessForm';
 
 import Loader from "../loader/loader"
@@ -13,6 +14,8 @@ const Modal = ({active, setActive, modalFormType, setModalFormType}) => {
       switch (modalFormType) {
         case "RegForm":
           return <RegForm setForm={setModalFormType} />;
+        case "RegConfirmForm":
+          return <RegConfirmForm setForm={setModalFormType} />;
         case "AuthForm":
           return <AuthForm setForm={setModalFormType} />;
         case "RestoreAccessForm":

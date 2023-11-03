@@ -2,7 +2,7 @@ import Logo from "../logo/logo";
 import Button from "../button/button"
 import "./header.scss"
 import { useContext } from "react";
-import AuthContext from "../../utils/AuthContext";
+import AuthContext from "../../utils/context/AuthContext";
 
 
 function Header() {

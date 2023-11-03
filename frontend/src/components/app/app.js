@@ -2,7 +2,7 @@ import { useState } from "react"
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import PrivateRoute from "../../utils/PrivateRoute";
-import { AuthProvider } from "../../utils/AuthContext";
+import { AuthProvider } from "../../utils/context/AuthContext";
 
 import Header from "../header/header"
 import {HomePage} from "../pages";

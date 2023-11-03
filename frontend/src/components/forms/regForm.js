@@ -26,7 +26,7 @@ const RegForm = ({setForm}) => {
             typeAttribute="password"/>,
         <Input
             headerName="password"
-            header_action="Repeat"
+            headerAction="Repeat"
             nameAttribute="password_repeat"
             typeAttribute="password"/>  
     ]
