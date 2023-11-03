@@ -32,7 +32,7 @@ export const ModalProvider = ({children}) => {
         modalActive: modalActive,
         currentModalForm: currentModalForm,
         switchModalActive: switchModalActive,
-        setCurrentModalForm: setCurrentModalForm
+        switchModalForm: switchModalForm
     } 
     
     return (    

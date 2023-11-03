@@ -1,5 +1,5 @@
 import Form from "./base/form"
-import Input from "../input/input";
+import InputComponent from "../input/input";
 
 
 const RestoreAccessForm = ({setForm}) => {
@@ -12,7 +12,7 @@ const RestoreAccessForm = ({setForm}) => {
     ]
 
     const inputList = [
-        <Input
+        <InputComponent
             headerName="email"
             nameAttribute="email"
             typeAttribute="email"/>,

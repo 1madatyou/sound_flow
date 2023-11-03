@@ -1,7 +1,7 @@
 import "./input.scss"
 
 
-function Input({headerName, headerAction, nameAttribute, typeAttribute, value, onChange}) {
+function InputComponent({headerName, headerAction, nameAttribute, typeAttribute, value, onChange}) {
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -21,4 +21,4 @@ function Input({headerName, headerAction, nameAttribute, typeAttribute, value, o
     );
 }
 
-export default Input;
+export default InputComponent;

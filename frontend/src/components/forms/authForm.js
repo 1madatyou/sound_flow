@@ -1,7 +1,7 @@
 import {useContext, useState} from "react";
 
 import Form from "./base/form"
-import Input from "../input/input";
+import InputComponent from "../input/input";
 import AuthContext from "../../context/AuthContext";
 
 
@@ -15,22 +15,23 @@ const AuthForm = ({setForm}) => {
         {'form': 'RestoreAccessForm', 'text': 'Restore Access'},
     ]
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [formData, setFormData] = useState({});
+    
+    const onInputChange = ({target: {name, value}}) => {
+        setFormData({...formData, [name]: value})
+    }
 
     const inputList = [
-        <Input
+        <InputComponent
             headerName="email"
             nameAttribute="email"
             typeAttribute="email"
-            value={email}
-            onChange={(e) => setEmail(e.currentTarget.value)}/>,
-        <Input
+            value={formData.email}/>,
+        <InputComponent
             headerName="password"
             nameAttribute="password"
             typeAttribute="password"
-            value={password}
-            onChange={(e) => setPassword(e.currentTarget.value)}/>  
+            value={formData.password}/>  
     ]
 
     return (
@@ -39,7 +40,8 @@ const AuthForm = ({setForm}) => {
               submitButtonText="Sign in"
               formLinks={formLinks}
               setForm={setForm}
-              onSubmit={loginUser}></Form>
+              onSubmit={loginUser}
+              onInputChange={onInputChange}></Form>
     )
 
 }

@@ -1,5 +1,5 @@
 import Form from "./base/form"
-import Input from "../input/input";
+import InputComponent from "../input/input";
 
 
 const RegConfirmForm = ({setForm}) => {
@@ -8,7 +8,7 @@ const RegConfirmForm = ({setForm}) => {
 
 
     const inputList = [
-        <Input
+        <InputComponent
             headerName="registration code"
             nameAttribute="registration_code"
             typeAttribute="text"/>,

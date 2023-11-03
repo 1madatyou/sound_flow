@@ -1,8 +1,14 @@
+import { useContext, useState } from "react";
 import Form from "./base/form"
-import Input from "../input/input";
+import InputComponent from "../input/input";
+import ModalContext from "../../context/ModalContext"
+
+import { API_BASE_URL } from "../../constants";
 
 
 const RegForm = ({setForm}) => {
+
+    const {switchModalForm} = useContext(ModalContext);
 
     const header = 'Sign up to SoundFlow'
 
@@ -11,24 +17,61 @@ const RegForm = ({setForm}) => {
         {'form': 'RestoreAccessForm', 'text': 'Restore Access'},
     ]
 
+    const [formData, setFormData] = useState({});
+    
+    const onInputChange = ({target: {name, value}}) => {
+        setFormData({...formData, [name]: value})
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const response = await fetch(API_BASE_URL + '/api/v1/registration',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        username: e.target.username.value,
+                        email: e.target.email.value,
+                        password: e.target.password.value
+                    }
+                )
+            }
+        )
+
+        if (response.status === 200) {
+            switchModalForm("RegConfirmForm")
+        } else {
+            
+        }
+
+    }
+
     const inputList = [
-        <Input
+        <InputComponent
             headerName="username"
             nameAttribute="username"
-            typeAttribute="text"/>,
-        <Input
+            typeAttribute="text"
+            value={formData.username}/>,
+        <InputComponent
             headerName="email"
             nameAttribute="email"
-            typeAttribute="email"/>,
-        <Input
+            typeAttribute="email"
+            value={formData.email}/>,
+        <InputComponent
             headerName="password"
             nameAttribute="password"
-            typeAttribute="password"/>,
-        <Input
+            typeAttribute="password"
+            value={formData.password}/>,
+        <InputComponent
             headerName="password"
             headerAction="Repeat"
-            nameAttribute="password_repeat"
-            typeAttribute="password"/>  
+            nameAttribute="password_confirm"
+            typeAttribute="password"
+            value={formData.password_confirm}/>  
     ]
 
     return (
@@ -37,7 +80,9 @@ const RegForm = ({setForm}) => {
             inputList={inputList} 
             submitButtonText="Sign up"
             formLinks={formLinks}
-            setForm={setForm}></Form>
+            setForm={setForm}
+            onSubmit={handleSubmit}
+            onInputChange={onInputChange}></Form>
     )
 
 }

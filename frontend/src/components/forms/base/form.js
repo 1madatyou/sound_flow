@@ -4,9 +4,7 @@ import FormLinks from "./formLinks"
 import React from "react";
 
 
-function Form({header, inputList, submitButtonText, formLinks, setForm, onSubmit}) {
-
- 
+function Form({header, inputList, submitButtonText, formLinks, setForm, onSubmit, onInputChange}) {
     
     return (
         <form className="form" onSubmit={onSubmit}>
@@ -14,15 +12,14 @@ function Form({header, inputList, submitButtonText, formLinks, setForm, onSubmit
 
             <div className="input-list">
                 {inputList.map((element, index) => {
-                    return React.cloneElement(element, {key: index+1})
+                    return React.cloneElement(element, {key: index+1, onChange: onInputChange})
                 })}  
             </div>
 
             <div className="form__button-wrapper">
                 <Button text={submitButtonText}/>
 
-                <FormLinks links={formLinks}
-                           setForm={setForm}/>
+                {formLinks ? <FormLinks links={formLinks} setForm={setForm}/> : null}
                 
             </div>
         </form>
