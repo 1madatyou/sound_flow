@@ -2,13 +2,12 @@ import {useContext, useState} from "react";
 
 import Form from "./base/form"
 import Input from "../input/input";
-import AuthContext from "../../utils/context/AuthContext";
+import AuthContext from "../../context/AuthContext";
 
 
 const AuthForm = ({setForm}) => {
 
-    const {loginUser} = useContext(AuthContext)
-
+    const { loginUser } = useContext(AuthContext)
 
     const header = 'Sign in to SoundFlow'
     const formLinks = [
