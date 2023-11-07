@@ -3,7 +3,7 @@ import PrivateRoute from "../../utils/PrivateRoute";
 import { AuthProvider } from "../../context/AuthContext";
 import { ModalProvider } from "../../context/ModalContext"
 
-import { HomePage, UserTracksPage } from "../pages";
+import { HomePage, UserAudioPage} from "../pages";
 
 import "./app.scss"
 
@@ -18,7 +18,7 @@ function App() {
 
               <Route path='/' element={ <Navigate to="/home" /> }/>
               <Route path="/home" element={<HomePage/>}/>
-              <Route path="/utt" element={<UserTracksPage/>}/>
+              <Route path="/utt" element={<UserAudioPage/>}/>
               <Route path="/big" element={<PrivateRoute> <div>Big Dick!</div> </PrivateRoute>}/>
 
             </Routes>

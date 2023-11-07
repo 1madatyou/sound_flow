@@ -10,7 +10,6 @@ const SidebarTemplate = ({children}) => {
                 <main>
                     <div className="wrapper">
                         <MenuBar/>
-
                         {children}
                     </div>
                 </main>

@@ -1,0 +1,36 @@
+
+
+.user-audio {
+
+    &__content {
+        display: inline-flex;
+        flex-direction: column;
+        width: 1274px;
+        margin-left: 12px;
+    }
+
+    &__user-info {
+
+        display: inline-flex;
+        gap: 25px;
+
+        padding: 20px;
+        border-radius: 0px 0px 10px 10px;
+        background: #FFF;
+        width: 100%;
+
+        color: #000;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+
+        &-text-block {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+}

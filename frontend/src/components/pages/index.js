@@ -1,5 +1,5 @@
 import HomePage from "./homePage/HomePage"
-import UserTracksPage from "./userTracksPage/UserTracksPage"
+import UserAudioPage from "./userAudioPage/UserAudioPage"
 
 
-export { HomePage, UserTracksPage };
+export { HomePage, UserAudioPage };
