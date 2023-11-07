@@ -1,6 +1,8 @@
 
 
 .playlist {
+    position: relative;
+
     display: flex;
     align-items: end;
     padding: 12px;
@@ -8,6 +10,7 @@
     width: 150px;
     height: 150px;
     border-radius: 10px;
+    overflow: hidden;
     color: white;
 
     text-align: left;
@@ -18,19 +21,34 @@
 
     &:hover {
         
-        & .playlist__name {
+
+        .playlist__name {
             opacity: 1;
-            
         }
 
-        & .playlist__creator {
+        .playlist__creator {
             opacity: 1;
         }
+
+        .playlist__image {
+            filter: blur(5px);
+        }
+
     }
 
-    &__image {
+    &__image { 
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        overflow: hidden;
+
         width: 100%;
-        display: block;
+        height: 100%;
+
+        object-fit: cover;
+
+        transition: filter 0.5s,
     }
 
     &__name {
@@ -59,8 +77,8 @@
 
     }
 
-    
     &__content-wrapper {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 2px

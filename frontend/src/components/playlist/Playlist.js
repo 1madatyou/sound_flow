@@ -5,7 +5,9 @@ import nle from "../../resources/img/nle.jpg"
 const Playlist = ({name, creator, img}) => {
 
     return (
-        <div className="playlist" style={{backgroundImage: `url("${nle}")`, backgroundSize: "cover",}}>
+        <div className="playlist">
+            
+            <img src={nle} className="playlist__image" />
 
             <div className="playlist__content-wrapper">
                 <span className="playlist__name">

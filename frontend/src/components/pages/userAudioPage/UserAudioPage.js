@@ -16,12 +16,12 @@ const UserAudioPage = () => {
 
     return (
         <SidebarTemplate>
-            <div className="user-audio__content">
+            <div className="user-audio">
                 
-                <div className="user-audio__user-info">
+                <div className="user-info">
                 
                     <img src={slava}/>
-                    <div className="user-audio__user-info-text-block">
+                    <div className="user-info__text-block">
                         <span>{username}</span>
                         <span>{countOfTracks} tracks,<br/> {countOfPlaylists} playlists </span>
                     </div>
