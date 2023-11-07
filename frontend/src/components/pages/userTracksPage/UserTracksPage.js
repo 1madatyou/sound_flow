@@ -1,13 +1,14 @@
-import MenuBar from "../../menuBar/MenuBar"
+import SidebarTemplate from "../../templates/SidebarTemplate";
 
 
 const UserTracksPage = () => {
-
-
     return (
-        <MenuBar/>
+        <SidebarTemplate>
+            <div className="page__content">
+                
+            </div>
+        </SidebarTemplate>
     );
-
 }
 
 export default UserTracksPage;

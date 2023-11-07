@@ -4,7 +4,7 @@ import ModalContext from "../../../context/ModalContext"
 import soda_luv from "../../../resources/img/home/soda_luv.png"
 import buda from "../../../resources/img/home/buda.jpeg"
 
-
+import BaseTemplate from "../../templates/BaseTemplate"
 
 import "./homePage.scss"
 
@@ -13,7 +13,7 @@ const HomePage = ({}) => {
   const {switchModalActive} = useContext(ModalContext)
 
   return (
-    <> 
+    <BaseTemplate>
       <section className="music-block">
           <div className="music-block__wrapper">
 
@@ -81,7 +81,7 @@ const HomePage = ({}) => {
 
       </div>
       </section>
-    </>
+    </BaseTemplate>
   )
 }
 
