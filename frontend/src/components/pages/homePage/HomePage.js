@@ -13,8 +13,7 @@ const HomePage = ({}) => {
   const {switchModalActive} = useContext(ModalContext)
 
   return (
-      <>
-
+    <> 
       <section className="music-block">
           <div className="music-block__wrapper">
 
@@ -82,8 +81,7 @@ const HomePage = ({}) => {
 
       </div>
       </section>
-
-  </>
+    </>
   )
 }
 

@@ -5,7 +5,7 @@ import { AuthProvider } from "../../context/AuthContext";
 import { ModalProvider } from "../../context/ModalContext"
 
 import Header from "../header/header"
-import {HomePage} from "../pages";
+import { HomePage, UserTracksPage } from "../pages";
 import Footer from "../footer/footer"
 
 import "./app.scss"
@@ -28,6 +28,7 @@ function App() {
 
                 <Route path='/' element={ <Navigate to="/home" /> }/>
                 <Route path="/home" element={<HomePage/>}/>
+                <Route path="/utt" element={<UserTracksPage/>}/>
                 <Route path="/big" element={<PrivateRoute> <div>Big Dick!</div> </PrivateRoute>}/>
 
               </Routes>

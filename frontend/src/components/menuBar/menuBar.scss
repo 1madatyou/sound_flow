@@ -1,0 +1,36 @@
+
+.menu-bar {
+    display: inline-flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 0px 0px 30px 30px;
+    background: rgba(144, 192, 174, 0.25);
+
+    &__item {
+        color: #000;
+
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        cursor: pointer;
+
+        &__content {
+            padding: 3px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        &-icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
