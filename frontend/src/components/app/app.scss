@@ -24,7 +24,9 @@
         color: $light-green;
         transition: color 0.5s
     }
-
-
 }
 
+.playlists {
+    display: flex;
+    gap: 42px;
+}
