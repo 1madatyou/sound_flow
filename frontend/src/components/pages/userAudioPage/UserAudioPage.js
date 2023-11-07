@@ -1,7 +1,9 @@
 import SidebarTemplate from "../../templates/SidebarTemplate";
 
+
 import slava from "../../../resources/img/slava.png"
 import Playlist from "../../playlist/Playlist";
+import MusicTrack from "../../musicTrack/MusicTrack";
 
 import "./userAudioPage.scss"
 
@@ -37,10 +39,24 @@ const UserAudioPage = () => {
                         <Playlist name="Bigbig" creator="NLE Choppa" />
                         <Playlist name="Bigbig" creator="NLE Choppa" />
                         <Playlist name="Bigbig" creator="NLE Choppa" />
-
                     </div>
 
                     <a className="a">Show more</a>
+
+                </div>
+
+                <div className="user-audio__user-tracks">
+                    
+                    <span>Tracks</span>
+                    
+                    <div className="tracks">
+                        <MusicTrack name="biggie" author="choppa"/>
+                        <MusicTrack name="biggie" author="choppa"/>
+                        <MusicTrack name="biggie" author="choppa"/>
+                        <MusicTrack name="biggie" author="choppa"/>
+                        <MusicTrack name="biggie" author="choppa"/>
+                    </div>
+                    
 
                 </div>
 

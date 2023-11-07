@@ -104,7 +104,7 @@
     
     border: 0;
     border-radius: 40px;
-    background-color: $light-green;
+    background-color: $green;
 
     color: $black;
 
@@ -118,12 +118,12 @@
     transition: color 0.5s;
 
     &:hover {
-        color: $light-green;
+        color: $green;
         background-color: $black;
         transition: color 0.5s ease, background-color 0.5s ease;
         
         .large-btn-cursor {
-            fill: $light-green;
+            fill: $green;
         }
     }
 
@@ -187,7 +187,7 @@
     line-height: normal;
     
     &--green {
-        color: $light-green;
+        color: $green;
     }
 
     &-wrapper {

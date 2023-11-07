@@ -21,7 +21,7 @@
     cursor: pointer;
 
     &:hover {
-        color: $light-green;
+        color: $green;
         transition: color 0.5s
     }
 }
@@ -29,4 +29,8 @@
 .playlists {
     display: flex;
     gap: 42px;
+}
+
+.tracks {
+    width: 100%;
 }
