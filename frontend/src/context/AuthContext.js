@@ -109,7 +109,6 @@ export const AuthProvider = ({children}) => {
         }, REFRESH_INTERVAL)
 
         return () => {
-            console.log(3)
             clearInterval(interval)
         }
 

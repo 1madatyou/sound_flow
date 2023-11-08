@@ -9,6 +9,7 @@ import { API_BASE_URL } from "../../constants";
 const RegForm = ({setForm}) => {
 
     const {switchModalForm} = useContext(ModalContext);
+    const [regErrors, setRegErrors] = useState({});
 
     const header = 'Sign up to SoundFlow'
 
@@ -42,10 +43,15 @@ const RegForm = ({setForm}) => {
             }
         )
 
+        
+
         if (response.status === 200) {
             switchModalForm("RegConfirmForm")
         } else {
-            
+            const data = await response.json()
+            console.log(data)
+            setRegErrors(Object.entries(data.errors))
+            console.log(regErrors)
         }
 
     }
@@ -82,7 +88,9 @@ const RegForm = ({setForm}) => {
             formLinks={formLinks}
             setForm={setForm}
             onSubmit={handleSubmit}
-            onInputChange={onInputChange}></Form>
+            onInputChange={onInputChange}
+            
+            formErrors={regErrors}></Form>
     )
 
 }

@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState} from 'react';
 import Modal from "../components/Modal/Modal"
 
 const ModalContext = createContext();
@@ -21,10 +21,10 @@ export const ModalProvider = ({children}) => {
         }
     }
 
-    function switchModalForm(form) {
+    function switchModalForm(formType) {
         setCurrentModalForm(() => null)
         setTimeout(() => {
-        setCurrentModalForm(() => form)
+        setCurrentModalForm(() => formType)
         }, 1000)
     }
 

@@ -1,6 +1,9 @@
+import React, {useContext } from "react";
+
 import Button from "../../button/button";
 import FormLinks from "./formLinks"
-import React from "react";
+
+import ModalContext from "../../../context/ModalContext";
 
 import { capitalize } from "../../../utils";
 
@@ -13,18 +16,21 @@ function Form({
     submitButtonText, 
     formLinks, 
     formErrors, 
-    setForm, 
 
     onSubmit, 
     onInputChange}) {
     
-    
+    const {switchModalForm} = useContext(ModalContext);
+
     const renderErrors = () => {
 
-        if (!formErrors.length) {
-            return null;
+        if (formErrors) {
+            if (!formErrors.length) {
+                return null;
+            }
         }
         
+
         return ( 
             <div className="form__errors">
 
@@ -62,6 +68,7 @@ function Form({
 
     return (
         <form className="form" onSubmit={onSubmit}>
+            
             <h1 className="form__header">{header}</h1>
 
             <div className="input-list">
@@ -75,7 +82,7 @@ function Form({
             <div className="form__button-wrapper">
                 <Button text={submitButtonText}/>
 
-                {formLinks ? <FormLinks links={formLinks} setForm={setForm}/> : null}
+                {formLinks ? <FormLinks links={formLinks} setForm={switchModalForm}/> : null}
                 
             </div>
         </form>

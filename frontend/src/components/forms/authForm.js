@@ -8,7 +8,7 @@ import AuthContext from "../../context/AuthContext";
 const AuthForm = ({setForm}) => {
 
     const { loginUser, loginErrors } = useContext(AuthContext)
-    const [formData, setFormData] = useState({});
+    const [ formData, setFormData ] = useState({});
 
     const header = 'Sign in to SoundFlow'
     const formLinks = [
