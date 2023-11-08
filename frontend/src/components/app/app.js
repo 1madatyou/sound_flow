@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import PrivateRoute from "../../utils/PrivateRoute";
+import PrivateRoute from "../routes/PrivateRoute"
 import { AuthProvider } from "../../context/AuthContext";
 import { ModalProvider } from "../../context/ModalContext"
 

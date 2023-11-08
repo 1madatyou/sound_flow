@@ -5,10 +5,7 @@
     width: 450px;
     padding: 20px 40px;
     justify-content: center;
-    align-items: center;
-    align-content: center;
     gap: 17px 97px;
-    flex-wrap: wrap;
 
     border-radius: 10px;
     background: $white;
@@ -41,6 +38,26 @@
 
         }
 
+    }
+
+    &__errors {
+        margin-top: 15px;
+        padding: 10px 15px;
+
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+
+        background-color: $light-green;
+        border-radius: 7px;
+
+        transition: 1s;
+    }
+
+    &__error-messages {
+        list-style-type: '- ';
+        margin: 5px 0;
     }
 }
 .input-list {

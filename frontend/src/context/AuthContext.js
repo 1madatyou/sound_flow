@@ -21,6 +21,8 @@ export const AuthProvider = ({children}) => {
         return localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
     })
 
+    let [loginErrors, setLoginErrors] = useState([]);
+
 
     let loginUser = async (e) => {
         e.preventDefault()
@@ -46,7 +48,8 @@ export const AuthProvider = ({children}) => {
             setAuthTokens(data)
             setUser(jwtDecode(data.access))
         } else {
-            alert('Something went wrong while loggin in the user!')
+            console.log(data)
+            setLoginErrors(Object.entries(data))
         }
 
 
@@ -117,6 +120,7 @@ export const AuthProvider = ({children}) => {
         authTokens: authTokens,
         loginUser: loginUser,
         logoutUser: logoutUser,
+        loginErrors: loginErrors,
     }
 
     return(

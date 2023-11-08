@@ -8,7 +8,7 @@ import BaseTemplate from "../../templates/BaseTemplate"
 
 import "./homePage.scss"
 
-const HomePage = ({}) => {
+const HomePage = () => {
 
   const {switchModalActive} = useContext(ModalContext)
 

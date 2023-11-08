@@ -1,9 +1,9 @@
+import { capitalize } from "../../utils";
+
 import "./input.scss"
 
 
-function InputComponent({headerName, headerAction, nameAttribute, typeAttribute, value, onChange}) {
-
-    const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+function InputComponent({headerName, headerAction, nameAttribute, typeAttribute, value, error, onChange}) {
 
     let placeholder = capitalize(headerName)
     const header = `${headerAction ? headerAction : "Enter"} ${headerName}:`

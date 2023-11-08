@@ -1,11 +1,65 @@
-import "./form.scss"
 import Button from "../../button/button";
 import FormLinks from "./formLinks"
 import React from "react";
 
+import { capitalize } from "../../../utils";
 
-function Form({header, inputList, submitButtonText, formLinks, setForm, onSubmit, onInputChange}) {
+import "./form.scss"
+
+
+function Form({
+    header, 
+    inputList, 
+    submitButtonText, 
+    formLinks, 
+    formErrors, 
+    setForm, 
+
+    onSubmit, 
+    onInputChange}) {
     
+    
+    const renderErrors = () => {
+
+        if (!formErrors.length) {
+            return null;
+        }
+        
+        return ( 
+            <div className="form__errors">
+
+                {formErrors.map(error => {
+
+                    let [errorHeader, errorMessages] = error
+                    errorMessages = Array.isArray(errorMessages) ? errorMessages : [errorMessages]
+
+                    return (
+                        <div className="form__error">
+
+                            <div className="form__error-header">
+                                {capitalize(errorHeader)}:
+                            </div>
+                            <ul className="form__error-messages">
+
+                                {errorMessages.map(errorMessage => {
+                                    return (
+                                        <li className="form__error-message">
+                                            {errorMessage}
+                                        </li>
+                                    );
+                                })}
+
+                            </ul>
+
+                        </div>
+                    );
+
+                })}
+
+            </div>
+        )
+    }
+
     return (
         <form className="form" onSubmit={onSubmit}>
             <h1 className="form__header">{header}</h1>
@@ -15,6 +69,8 @@ function Form({header, inputList, submitButtonText, formLinks, setForm, onSubmit
                     return React.cloneElement(element, {key: index+1, onChange: onInputChange})
                 })}  
             </div>
+
+            {renderErrors()}
 
             <div className="form__button-wrapper">
                 <Button text={submitButtonText}/>

@@ -7,15 +7,14 @@ import AuthContext from "../../context/AuthContext";
 
 const AuthForm = ({setForm}) => {
 
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser, loginErrors } = useContext(AuthContext)
+    const [formData, setFormData] = useState({});
 
     const header = 'Sign in to SoundFlow'
     const formLinks = [
         {'form': 'RegForm', 'text': 'Sign up'},
         {'form': 'RestoreAccessForm', 'text': 'Restore Access'},
     ]
-
-    const [formData, setFormData] = useState({});
     
     const onInputChange = ({target: {name, value}}) => {
         setFormData({...formData, [name]: value})
@@ -41,7 +40,8 @@ const AuthForm = ({setForm}) => {
               formLinks={formLinks}
               setForm={setForm}
               onSubmit={loginUser}
-              onInputChange={onInputChange}></Form>
+              onInputChange={onInputChange}
+              formErrors={loginErrors}></Form>
     )
 
 }

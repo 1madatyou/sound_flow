@@ -6,7 +6,6 @@ const RegConfirmForm = ({setForm}) => {
 
     const header = 'Confirm registration'
 
-
     const inputList = [
         <InputComponent
             headerName="registration code"
