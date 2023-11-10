@@ -5,7 +5,7 @@ import InputComponent from "../input/input";
 import AuthContext from "../../context/AuthContext";
 
 
-const AuthForm = ({setForm}) => {
+const AuthForm = () => {
 
     const { loginUser, loginErrors } = useContext(AuthContext)
     const [ formData, setFormData ] = useState({});
@@ -38,7 +38,7 @@ const AuthForm = ({setForm}) => {
               inputList={inputList} 
               submitButtonText="Sign in"
               formLinks={formLinks}
-              setForm={setForm}
+              
               onSubmit={loginUser}
               onInputChange={onInputChange}
               formErrors={loginErrors}></Form>

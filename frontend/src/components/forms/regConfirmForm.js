@@ -1,16 +1,24 @@
+import { useState } from "react";
+
 import Form from "./base/form"
 import InputComponent from "../input/input";
 
 
-const RegConfirmForm = ({setForm}) => {
+const RegConfirmForm = () => {
 
-    const header = 'Confirm registration'
+    const header = 'Confirm registration';
+    const [formData, setFormData] = useState({});
+    const onInputChange = ({target: {name, value}}) => {
+        setFormData({...formData, [name]: value})
+    }  
+    const [RegConfirmErrors, setRegConfirmErrors] = useState({});
 
     const inputList = [
         <InputComponent
             headerName="registration code"
             nameAttribute="registration_code"
-            typeAttribute="text"/>,
+            typeAttribute="text"
+            value={formData.registration_code}/>,
     ]
 
     return (
@@ -18,7 +26,9 @@ const RegConfirmForm = ({setForm}) => {
             header={header} 
             inputList={inputList} 
             submitButtonText="Sign up"
-            setForm={setForm}></Form>
+            onInputChange={onInputChange}
+
+            formErrors={RegConfirmErrors}></Form>
     )
 
 }

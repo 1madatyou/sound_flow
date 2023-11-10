@@ -23,13 +23,12 @@ function Form({
     const {switchModalForm} = useContext(ModalContext);
 
     const renderErrors = () => {
-
+        console.log(formErrors)
         if (formErrors) {
             if (!formErrors.length) {
                 return null;
             }
         }
-        
 
         return ( 
             <div className="form__errors">

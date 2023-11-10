@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 import Form from "./base/form"
 import InputComponent from "../input/input";
 
 
-const RestoreAccessForm = ({setForm}) => {
+const RestoreAccessForm = () => {
 
     const header = 'Restore access'
 
@@ -10,6 +12,12 @@ const RestoreAccessForm = ({setForm}) => {
         {'form': 'AuthForm', 'text': 'Sign in'},
         {'form': 'RegForm', 'text': 'Sign up'},
     ]
+
+    const [formData, setFormData] = useState({});
+    const onInputChange = ({target: {name, value}}) => {
+        setFormData({...formData, [name]: value})
+    }
+    const [formErrors, setFormErrors] = useState({});
 
     const inputList = [
         <InputComponent
@@ -24,7 +32,9 @@ const RestoreAccessForm = ({setForm}) => {
             inputList={inputList} 
             submitButtonText="Send mail"
             formLinks={formLinks}
-            setForm={setForm}></Form>
+            onInputChange={onInputChange}
+            
+            formErrors={formErrors}></Form>
     )
 
 }

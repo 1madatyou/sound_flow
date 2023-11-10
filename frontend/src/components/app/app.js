@@ -18,7 +18,7 @@ function App() {
 
               <Route path='/' element={ <Navigate to="/home" /> }/>
               <Route path="/home" element={<HomePage/>}/>
-              <Route path="/utt" element={<UserAudioPage/>}/>
+              <Route path="/utt" element={<PrivateRoute> <UserAudioPage/> </PrivateRoute>}/>
               <Route path="/big" element={<PrivateRoute> <div>Big Dick!</div> </PrivateRoute>}/>
 
             </Routes>

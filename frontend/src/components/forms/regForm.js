@@ -6,11 +6,11 @@ import ModalContext from "../../context/ModalContext"
 import { API_BASE_URL } from "../../constants";
 
 
-const RegForm = ({setForm}) => {
+const RegForm = () => {
 
     const {switchModalForm} = useContext(ModalContext);
     const [regErrors, setRegErrors] = useState({});
-
+    
     const header = 'Sign up to SoundFlow'
 
     const formLinks = [
@@ -86,7 +86,6 @@ const RegForm = ({setForm}) => {
             inputList={inputList} 
             submitButtonText="Sign up"
             formLinks={formLinks}
-            setForm={setForm}
             onSubmit={handleSubmit}
             onInputChange={onInputChange}
             
