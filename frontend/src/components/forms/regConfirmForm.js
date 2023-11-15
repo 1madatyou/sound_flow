@@ -10,7 +10,7 @@ import { API_BASE_URL } from "../../constants";
 
 const RegConfirmForm = () => {
 
-    const {switchModalForm} = useContext(ModalContext);
+    const {switchModalForm, switchModalActive} = useContext(ModalContext);
 
     const header = 'Confirm registration';
     const [formData, setFormData] = useState({});
@@ -33,28 +33,34 @@ const RegConfirmForm = () => {
         e.preventDefault()
         
 
-        const response = await fetch('http://127.0.0.1:8000/api/v1/registration-confirm',
-        {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': CSRFToken,
-            },
-            body: JSON.stringify(
-                {
-                    registration_code: e.target.registration_code.value
-                }
-            ),
-            credentials: "include"
-        }
-    )
+        const response = await fetch( API_BASE_URL + '/api/v1/registration-confirm',
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': CSRFToken,
+                },
+                body: JSON.stringify(
+                    {
+                        registration_code: e.target.registration_code.value
+                    }
+                ),
+                credentials: "include"
+            }
+        )
 
-        if (response.status === 200) {
+        if (response.status === 201) {
             switchModalForm('AuthForm')
-        } else {
-            const data = await response.json()
-            setRegConfirmErrors(Object.entries(data.errors))
-            console.log(data)
+        } else if (response.status === 409) {
+            switchModalActive(false)
+        } else if (response.status === 401) {
+            console.log(401)
+            setRegConfirmErrors(
+                Object.entries({'common': 'incorrect code'})
+            )
+            console.log(Object.entries({'common': 'incorrect code'}))
+        } else if (response.status === 400) {
+            switchModalActive(false)
         }
     }
 

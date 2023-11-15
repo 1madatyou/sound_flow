@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
 from accounts.serializers import UserSerializer
+from accounts.models import User
 
 from common.utils import generate_code, send_template_mail
 
@@ -59,8 +60,7 @@ class RegistrationConfirmView(APIView):
 
     def post(self, request, *args, **kwargs):
         session = request.session
-        print(request.COOKIES)
-        print(dict(session))
+
         # Get data from session storage
         try:
             registration_data = session['registration_data']
@@ -81,14 +81,19 @@ class RegistrationConfirmView(APIView):
         
         # Save user
         serializer = UserSerializer(data=registration_data)
-
         if not serializer.is_valid():
             return Response(
-                {'error': serializer.errors},
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        serializer.save()
+        user_data = serializer.data
+
+        new_user = User(
+            username=user_data['username'],
+            email=user_data['email']
+        )
+        new_user.set_password(user_data['password'])
+        new_user.save()
 
         return Response(
             serializer.data,

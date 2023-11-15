@@ -13,12 +13,6 @@ class RegistrationForm(forms.Form):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError("passwords_mismatch")
         
-        
-        
-
-
-        
-
     class Meta:
         model = User
         fields = ['username', 'email', 'password']

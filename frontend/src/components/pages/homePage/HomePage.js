@@ -73,7 +73,7 @@ const HomePage = () => {
           <span className="sub-text">
               Upload tracks, follow artists, create playlists. For free.
           </span>
-          <button className="btn join-block-btn " onClick={() => switchModalActive(true, "AuthForm")}>
+          <button className="btn join-block-btn " onClick={() => switchModalActive(true, "RegForm")}>
               Create account
           </button>
           </div>
