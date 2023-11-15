@@ -22,49 +22,6 @@ function Form({
     
     const {switchModalForm} = useContext(ModalContext);
 
-    const renderErrors = () => {
-        console.log(formErrors)
-        if (formErrors) {
-            if (!formErrors.length) {
-                return null;
-            }
-        }
-
-        return ( 
-            <div className="form__errors">
-
-                {formErrors.map(error => {
-
-                    let [errorHeader, errorMessages] = error
-                    errorMessages = Array.isArray(errorMessages) ? errorMessages : [errorMessages]
-
-                    return (
-                        <div className="form__error">
-
-                            <div className="form__error-header">
-                                {capitalize(errorHeader)}:
-                            </div>
-                            <ul className="form__error-messages">
-
-                                {errorMessages.map(errorMessage => {
-                                    return (
-                                        <li className="form__error-message">
-                                            {errorMessage}
-                                        </li>
-                                    );
-                                })}
-
-                            </ul>
-
-                        </div>
-                    );
-
-                })}
-
-            </div>
-        )
-    }
-
     return (
         <form className="form" onSubmit={onSubmit}>
             
@@ -76,7 +33,7 @@ function Form({
                 })}  
             </div>
 
-            {renderErrors()}
+            <FormErrors formErrors={formErrors}/>
 
             <div className="form__button-wrapper">
                 <Button text={submitButtonText}/>
@@ -89,3 +46,47 @@ function Form({
 }
 
 export default Form;
+
+
+const FormErrors = ({formErrors}) => {
+
+    if (formErrors) {
+        if (!formErrors.length) {
+            return null;
+        }
+    }
+
+    return ( 
+        <div className="form__errors">
+
+            {formErrors.map(error => {
+
+                let [errorHeader, errorMessages] = error
+                errorMessages = Array.isArray(errorMessages) ? errorMessages : [errorMessages]
+
+                return (
+                    <div className="form__error">
+
+                        <div className="form__error-header">
+                            {capitalize(errorHeader)}:
+                        </div>
+                        <ul className="form__error-messages">
+
+                            {errorMessages.map(errorMessage => {
+                                return (
+                                    <li className="form__error-message">
+                                        {errorMessage}
+                                    </li>
+                                );
+                            })}
+
+                        </ul>
+
+                    </div>
+                );
+
+            })}
+
+        </div>
+    )
+}

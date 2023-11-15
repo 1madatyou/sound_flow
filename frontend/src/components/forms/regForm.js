@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import Form from "./base/form"
 import InputComponent from "../input/input";
-import ModalContext from "../../context/ModalContext"
+import {ModalContext, CSRFContext} from "../../context/"
 
 import { API_BASE_URL } from "../../constants";
 
@@ -24,6 +24,9 @@ const RegForm = () => {
         setFormData({...formData, [name]: value})
     }
 
+
+    const {CSRFToken} = useContext(CSRFContext)
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -31,7 +34,8 @@ const RegForm = () => {
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': CSRFToken,
                 },
                 body: JSON.stringify(
                     {
@@ -39,7 +43,8 @@ const RegForm = () => {
                         email: e.target.email.value,
                         password: e.target.password.value
                     }
-                )
+                ),
+                credentials: "include"
             }
         )
 
@@ -49,9 +54,7 @@ const RegForm = () => {
             switchModalForm("RegConfirmForm")
         } else {
             const data = await response.json()
-            console.log(data)
             setRegErrors(Object.entries(data.errors))
-            console.log(regErrors)
         }
 
     }
