@@ -6,12 +6,18 @@ import Playlist from "../../playlist/Playlist";
 import MusicTrack from "../../musicTrack/MusicTrack";
 
 import "./userAudioPage.scss"
+import { useParams } from "react-router-dom";
 
 
 const UserAudioPage = () => {
 
+    const {userId} = useParams()
+
+    console.log(userId)
+
     const username = "SlavchikWB"
     const countOfTracks = 230
+    const countOfStreams = 234 
     const countOfPlaylists = 11
 
     return (
@@ -23,7 +29,9 @@ const UserAudioPage = () => {
                     <img src={slava}/>
                     <div className="user-info__text-block">
                         <span>{username}</span>
-                        <span>{countOfTracks} tracks,<br/> {countOfPlaylists} playlists </span>
+                        <span>{countOfTracks} tracks,
+                        <br/> {countOfPlaylists} playlists,
+                        <br/> {countOfStreams} streams </span>
                     </div>
                     
 

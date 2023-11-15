@@ -47,6 +47,7 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem('authTokens', JSON.stringify(data));
             setAuthTokens(data)
             setUser(jwtDecode(data.access))
+            navigate(`/users/${user.id}/tracks`)
         } else {
             console.log(data)
             setLoginErrors(Object.entries(data))

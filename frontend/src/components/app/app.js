@@ -18,10 +18,12 @@ function App() {
               <ModalProvider>
                 <Routes>
 
-                  <Route path='/' element={ <Navigate to="/home" /> }/>
                   <Route path="/home" element={<HomePage/>}/>
-                  <Route path="/utt" element={<PrivateRoute> <UserAudioPage/> </PrivateRoute>}/>
-                  <Route path="/big" element={<PrivateRoute> <div>Big Dick!</div> </PrivateRoute>}/>
+
+                  <Route exact path="/users/:userId/tracks" element={<PrivateRoute component={<UserAudioPage/>}/>}/>
+
+                  <Route path="*" element={ <Navigate to="/home" /> }/>
+                    
 
                 </Routes>
               </ModalProvider>
