@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import ModalContext from "../../../context/ModalContext"
+import {ModalContext, AuthContext} from "../../../context/"
 
 import soda_luv from "../../../resources/img/home/soda_luv.png"
 import buda from "../../../resources/img/home/buda.jpeg"
@@ -11,7 +11,7 @@ import "./homePage.scss"
 const HomePage = () => {
 
   const {switchModalActive} = useContext(ModalContext)
-
+  
   return (
     <BaseTemplate>
       <section className="music-block">

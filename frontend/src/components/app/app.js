@@ -20,7 +20,7 @@ function App() {
 
                   <Route path="/home" element={<HomePage/>}/>
 
-                  <Route exact path="/users/:userId/tracks" element={<PrivateRoute component={<UserAudioPage/>}/>}/>
+                  <Route exact path="/users/:userId" element={<PrivateRoute component={<UserAudioPage/>}/>}/>
 
                   <Route path="*" element={ <Navigate to="/home" /> }/>
                     
