@@ -59,7 +59,8 @@ class RegistrationConfirmView(APIView):
 
     def post(self, request, *args, **kwargs):
         session = request.session
-
+        print(request.COOKIES)
+        print(dict(session))
         # Get data from session storage
         try:
             registration_data = session['registration_data']
