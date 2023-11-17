@@ -9,7 +9,7 @@ class Track(models.Model):
     duration = models.IntegerField(verbose_name='Track duration in seconds')
     weight = models.IntegerField(verbose_name='Track weight in KB')
 
-    streams = models.IntegerField(verbose_name='Number of times a track has been played by other users')
+    streams = models.ManyToManyField(to='accounts.User', related_name='streams')
 
     upload_date = models.DateTimeField(default=timezone.now)
 
@@ -19,5 +19,7 @@ class Playlist(models.Model):
     tracks = models.ManyToManyField(verbose_name='Tracks in the playlist', to='music.Track')
 
     creation_date = models.DateTimeField(default=timezone.now)
+
+
 
 

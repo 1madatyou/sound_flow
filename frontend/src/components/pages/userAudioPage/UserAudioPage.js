@@ -9,11 +9,15 @@ import MusicTrack from "../../musicTrack/MusicTrack";
 import "./userAudioPage.scss"
 import { useParams } from "react-router-dom";
 
+import SoundFlowService from "../../../services/soundFlowService/base";
+
 
 const UserAudioPage = () => {
 
     const {userId} = useParams()
 
+    SoundFlowService.getUser(userId)
+        .then(data => console.log(data))
 
     const username = "SlavchikWB"
     const countOfTracks = 230

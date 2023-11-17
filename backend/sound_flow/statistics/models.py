@@ -4,7 +4,7 @@ from django.utils import timezone
 
 class UserStatistic(models.Model):
     
-    user = models.OneToOneField(to='accounts.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(to='accounts.User', on_delete=models.CASCADE, related_name='statistics')
 
     count_of_tracks = models.IntegerField(default=0)
     count_of_playlists = models.IntegerField(default=0)
