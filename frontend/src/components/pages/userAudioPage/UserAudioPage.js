@@ -13,7 +13,6 @@ const UserAudioPage = () => {
 
     const {userId} = useParams()
 
-    console.log(userId)
 
     const username = "SlavchikWB"
     const countOfTracks = 230

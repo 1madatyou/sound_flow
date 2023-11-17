@@ -52,7 +52,7 @@ const RegConfirmForm = () => {
         if (response.status === 201) {
             switchModalForm('AuthForm')
         } else if (response.status === 409) {
-            switchModalActive(false)
+            switchModalActive()
         } else if (response.status === 401) {
             console.log(401)
             setRegConfirmErrors(
@@ -60,7 +60,7 @@ const RegConfirmForm = () => {
             )
             console.log(Object.entries({'common': 'incorrect code'}))
         } else if (response.status === 400) {
-            switchModalActive(false)
+            switchModalActive()
         }
     }
 

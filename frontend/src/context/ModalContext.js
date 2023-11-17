@@ -12,13 +12,11 @@ export const ModalProvider = ({children}) => {
     const [modalActive, setModalActive] = useState(false);
     const [currentModalForm, setCurrentModalForm] = useState();
 
-    function switchModalActive(modalActive, modalFormType) {
-        if (modalActive) {
-        setModalActive(true)
-        switchModalForm(modalFormType)
-        } else {
-        setModalActive(false)
+    function switchModalActive(modalFormType) {
+        if (!modalActive) {
+            switchModalForm(modalFormType)
         }
+        setModalActive(!modalActive)
     }
 
     function switchModalForm(formType) {

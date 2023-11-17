@@ -1,13 +1,18 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 import Form from "./base/form"
 import InputComponent from "../input/input";
-import AuthContext from "../../context/AuthContext";
+import { AuthContext, ModalContext } from "../../context/";
+import { useNavigate } from "react-router-dom";
 
 
 const AuthForm = () => {
+    
+    const navigate = useNavigate();
+    const {switchModalActive} = useContext(ModalContext);
 
-    const { loginUser, loginErrors } = useContext(AuthContext)
+
+    const { loginUser, loginErrors, user } = useContext(AuthContext)
     const [ formData, setFormData ] = useState({});
 
     const header = 'Sign in to SoundFlow'
@@ -18,6 +23,14 @@ const AuthForm = () => {
     
     const onInputChange = ({target: {name, value}}) => {
         setFormData({...formData, [name]: value})
+    }
+
+    const handleSubmit = async (event) => {
+        await loginUser(event)
+        switchModalActive()
+        // console.log("Trying to navigate with...")
+        // console.log(user)
+
     }
 
     const inputList = [
@@ -39,7 +52,7 @@ const AuthForm = () => {
               submitButtonText="Sign in"
               formLinks={formLinks}
               
-              onSubmit={loginUser}
+              onSubmit={handleSubmit}
               onInputChange={onInputChange}
               formErrors={loginErrors}></Form>
     )

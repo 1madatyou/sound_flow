@@ -42,12 +42,13 @@ export const AuthProvider = ({children}) => {
         )
         
         let data = await response.json()
-
         if (response.status === 200) {
             localStorage.setItem('authTokens', JSON.stringify(data));
             setAuthTokens(data)
-            setUser(jwtDecode(data.access))
-            navigate(`/users/${user.id}/tracks`)
+            const accessTokenDataDecoded = jwtDecode(data.access) 
+            console.log('Setting user data...')
+            setUser(accessTokenDataDecoded)
+            navigate(`/users/${accessTokenDataDecoded.user_id}`)
         } else {
             console.log(data)
             setLoginErrors(Object.entries(data))

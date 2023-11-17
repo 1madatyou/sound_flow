@@ -1,10 +1,14 @@
 import "./logo.scss"
+import { Link } from "react-router-dom";
+
 
 function Logo() {
     return (
-        <span className="logo">
-            SoundFlow
-        </span>       
+        <Link to={'/home/'} style={{textDecoration: 'none'}}>
+            <span className="logo">
+                SoundFlow
+            </span>
+        </Link>
     );
 }
 
