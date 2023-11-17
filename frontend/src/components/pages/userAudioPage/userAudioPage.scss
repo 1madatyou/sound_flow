@@ -64,9 +64,15 @@
     font-weight: 600;
     line-height: normal;
 
-    &__text-block {
+    &__text {
         display: inline-flex;
         flex-direction: column;
         justify-content: space-around;
+    }
+
+    &__main {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }

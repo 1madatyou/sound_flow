@@ -1,8 +1,11 @@
 import "./button.scss"
 
-function Button({text, onClick}) {
+function Button({variant, children, onClick}) {
+
+    const buttonClassName = variant ? `btn ${variant}`: 'btn' 
+
     return (
-        <button className="btn" onClick={onClick}>{text}</button>
+        <button className={buttonClassName} onClick={onClick}>{children}</button>
     );
 }
 

@@ -1,8 +1,9 @@
 import SidebarTemplate from "../../templates/SidebarTemplate";
 
-
 import slava from "../../../resources/img/slava.png"
 import Playlist from "../../playlist/Playlist";
+
+import Button from "../../button/button";
 import MusicTrack from "../../musicTrack/MusicTrack";
 
 import "./userAudioPage.scss"
@@ -25,8 +26,14 @@ const UserAudioPage = () => {
                 
                 <div className="user-info">
                 
-                    <img src={slava}/>
-                    <div className="user-info__text-block">
+                    <div className="user-info__main">
+                        <img src={slava}/>
+                        <Button>
+                            Follow
+                        </Button>
+                    </div>
+
+                    <div className="user-info__text">
                         <span>{username}</span>
                         <span>{countOfTracks} tracks,
                         <br/> {countOfPlaylists} playlists,

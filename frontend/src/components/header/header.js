@@ -16,8 +16,17 @@ function Header() {
 
     const userId = user && user.user_id
 
-    const sideButtons = user ? (<> <Button text="My profile" onClick={() => navigate(`/users/${userId}`)}/> <Button text="Leave" onClick={logoutUser}/> </>) : <Button text="Sign in" onClick={() => switchModalActive("AuthForm")}/>;
+    const sideButtons = user ? 
+    (   
+        <> 
+            <Button onClick={() => navigate(`/users/${userId}`)}> My profile</Button> 
+            <Button onClick={logoutUser}>Leave</Button> 
+        </>
+    ) 
+    : 
+        <Button onClick={() => switchModalActive("AuthForm")}>Sign in</Button>;
 
+        
     return (
         <header className="header">
             <div className="wrapper">
