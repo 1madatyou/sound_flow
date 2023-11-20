@@ -11,7 +11,6 @@ import defaultUserImage from '../../resources/img/user-image.png'
 import './userInfo.scss'
 
 
-
 const UserInfo = ({userId}) => {
 
     const {currentUserId} = useContext(AuthContext)
@@ -38,7 +37,6 @@ const UserInfo = ({userId}) => {
 const View = ({data, currentUserId}) => {
 
     const {id, username, countOfFollowers, countOfStreams, image} = data
-    console.log(id)
 
     return (
         <div className="user-info">

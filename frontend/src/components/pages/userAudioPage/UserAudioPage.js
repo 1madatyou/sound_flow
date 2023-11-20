@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
 
 import SidebarTemplate from "../../templates/SidebarTemplate";
-import Playlist from "../../playlist/Playlist";
-import Button from "../../button/button";
 import MusicTrack from "../../musicTrack/MusicTrack";
 import UserInfo from "../../userInfo/UserInfo";
+import UserPlaylistList from "../../playlistList/UserPlaylistList";
 
 import SoundFlowService from "../../../services/soundFlowService/base";
 
@@ -28,21 +27,7 @@ const UserAudioPage = () => {
                 
                 <UserInfo userId={userId}/>
 
-                <div className="user-audio__user-playlists">
-                
-                    <span>Playlists</span>
-
-                    <div className="playlists">
-                        <Playlist name="Bigbig" creator="NLE Choppa" />
-                        <Playlist name="Bigbig" creator="NLE Choppa" />
-                        <Playlist name="Bigbig" creator="NLE Choppa" />
-                        <Playlist name="Bigbig" creator="NLE Choppa" />
-                        <Playlist name="Bigbig" creator="NLE Choppa" />
-                    </div>
-
-                    <a className="a">Show more</a>
-
-                </div>
+                <UserPlaylistList userId={userId}/>
 
                 <div className="user-audio__user-tracks">
                     
@@ -56,7 +41,6 @@ const UserAudioPage = () => {
                         <MusicTrack name="biggie" author="choppa"/>
                     </div>
                     
-
                 </div>
 
             </div>
