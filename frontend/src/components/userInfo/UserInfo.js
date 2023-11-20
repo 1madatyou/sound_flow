@@ -4,9 +4,10 @@ import { AuthContext } from '../../context'
 
 import Button from '../button/button'
 
-import SoundFlowService from '../../services/soundFlowService/base'
+import useSoundFlowService from '../../services/soundFlowService/base'
 
 import defaultUserImage from '../../resources/img/user-image.png'
+
 import './userInfo.scss'
 
 
@@ -17,8 +18,10 @@ const UserInfo = ({userId}) => {
 
     const [userInfo, setUserInfo] = useState({})
 
+    const {getUser} = useSoundFlowService();
+
     useEffect(() => {
-        SoundFlowService.getUser(userId)
+        getUser(userId)
             .then(data => {
                 setUserInfo(data)
             })

@@ -1,8 +1,21 @@
 import { API_BASE_URL } from "../../constants"
 
-class SoundFlowService {
+const useSoundFlowService = () => {
 
-    static _transformUser = async (data) => {
+    const _send_get = async (route) => {
+        const response = await fetch(
+            API_BASE_URL + route,
+            {
+                method: "GET",
+                headers: {'Content-Type': 'application/json'},
+                body: null
+            }
+        )
+
+        return response
+    }
+
+    const _transformUser = (data) => {
         
         const {id, username, following, statistic, image} = data
         const result = {
@@ -19,24 +32,22 @@ class SoundFlowService {
         return result
     }
 
-    static getUser = async (userId) => {
+    const getUser = async (userId) => {
 
-        const response = await fetch(
-            API_BASE_URL + `/users/${userId}`,
-            {
-                method: "GET",
-                headers: {'Content-Type': 'application/json'},
-                body: null
-            }
-        )
+        const response = await _send_get(`/users/${userId}`)
 
         if (response.status === 200) {
             let data = await response.json()
-            return SoundFlowService._transformUser(data)            
+            return _transformUser(data)            
         } 
     }
 
-
+    let context = {
+        getUser,
+    }
+    
+    return context;
 }
 
-export default SoundFlowService;
+
+export default useSoundFlowService;
