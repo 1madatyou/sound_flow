@@ -1,10 +1,11 @@
 import { useState } from "react"
 import Playlist from "../playlist/Playlist"
 
+import "./userPlaylistList.scss"
 
 const UserPlaylistList = ({userId}) => {
 
-    const userPlaylistList = useState([]);
+    const {userPlaylistList, setUserPlaylistList} = useState([]);
 
     return (
         <View playlistList={userPlaylistList}/>
@@ -15,7 +16,7 @@ const UserPlaylistList = ({userId}) => {
 const View = ({playlistList}) => {
 
     return (
-        <div className="user-audio__user-playlists">
+        <div className="playlist-list">
                 
             <span>Playlists</span>
 

@@ -1,50 +1,10 @@
-
-
-.user-audio {
-
+.user {
     display: inline-flex;
     flex-direction: column;
     gap: 18px;
     width: 1274px;
     margin-left: 12px;
-
-    &__user-playlists {
-
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 19px;
-
-        padding: 20px 102px;
-        border-radius: 10px 10px 10px 10px;
-        background: #FFF;
-
-        color: #000;
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-    }
-
-    &__user-tracks {
-
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 19px;
-
-        padding: 20px 102px;
-        border-radius: 10px 10px 10px 10px;
-        background: #FFF;
-
-        color: #000;
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-    }
-
 }
+
+
 
