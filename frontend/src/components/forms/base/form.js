@@ -36,7 +36,9 @@ function Form({
             <FormErrors formErrors={formErrors}/>
 
             <div className="form__button-wrapper">
-                <Button text={submitButtonText}/>
+                <Button>
+                    {submitButtonText}
+                </Button>
 
                 {formLinks ? <FormLinks links={formLinks} setForm={switchModalForm}/> : null}
                 

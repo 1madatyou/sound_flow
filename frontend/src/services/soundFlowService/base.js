@@ -1,13 +1,24 @@
+import { useContext } from "react"
+
+import { AuthContext } from "../../context"
+
 import { API_BASE_URL } from "../../constants"
 
 const useSoundFlowService = () => {
 
+    const {authTokens} = useContext(AuthContext)
+
     const _send_get = async (route) => {
+
+
         const response = await fetch(
             API_BASE_URL + route,
             {
                 method: "GET",
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authTokens.access}`
+                },
                 body: null
             }
         )

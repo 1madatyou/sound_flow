@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
 
-# Create your views here.
+
+class UserFollowAPIView(APIView):
+    permission_classes = []
+
+    def post(self, request, *args, **kwargs):
+        pass
+
+

@@ -26,7 +26,7 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch(API_BASE_URL + '/api/v1/token/',
+        const response = await fetch(API_BASE_URL + '/token/',
             {
                 method: "POST",
                 headers: {
@@ -69,11 +69,7 @@ export const AuthProvider = ({children}) => {
 
     const updateToken = async () => {
 
-        console.log("Состояние токенов:")
-        console.log(authTokens)
-
-        console.log(`Отправляем refresh ${JSON.stringify( {refresh: authTokens?.refresh} )}`)
-        const response = await fetch('http://127.0.0.1:8000/api/v1/token/refresh/', {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/token/refresh', {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
@@ -107,6 +103,8 @@ export const AuthProvider = ({children}) => {
         let interval = setInterval(()=>{
             if(authTokens){
                 updateToken()
+                console.log('update token')
+
             }
         }, REFRESH_INTERVAL)
 
@@ -117,7 +115,7 @@ export const AuthProvider = ({children}) => {
     }, [authTokens])
 
     let contextData = {
-        currentUserId: user.user_id,
+        currentUserId: user && user.user_id,
         authTokens: authTokens,
         loginUser: loginUser,
         logoutUser: logoutUser,

@@ -29,7 +29,7 @@ class UserInfoSerializer(serializers.ModelSerializer):
     def get_following(self, user: User):
         request = self.context['request']
         if request.user.is_authenticated:
-            return user.followers.filter(user_id=request.user.id).exists()
+            return user.followers.filter(user__id=request.user.id).exists()
         return False
 
     class Meta:
