@@ -15,3 +15,8 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['password, username']
+
+
+class UserImage(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='image')
+    image = models.FileField(verbose_name="Avatar of user", upload_to='user_images', null=True)
