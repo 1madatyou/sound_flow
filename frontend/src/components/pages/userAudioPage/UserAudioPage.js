@@ -1,51 +1,32 @@
-import SidebarTemplate from "../../templates/SidebarTemplate";
-
-import slava from "../../../resources/img/slava.png"
-import Playlist from "../../playlist/Playlist";
-
-import Button from "../../button/button";
-import MusicTrack from "../../musicTrack/MusicTrack";
-
-import "./userAudioPage.scss"
 import { useParams } from "react-router-dom";
 
+import SidebarTemplate from "../../templates/SidebarTemplate";
+import Playlist from "../../playlist/Playlist";
+import Button from "../../button/button";
+import MusicTrack from "../../musicTrack/MusicTrack";
+import UserInfo from "../../userInfo/UserInfo";
+
 import SoundFlowService from "../../../services/soundFlowService/base";
+
+import slava from "../../../resources/img/slava.png"
+
+import "./userAudioPage.scss"
+import { useState } from "react";
+
+
 
 
 const UserAudioPage = () => {
 
     const {userId} = useParams()
 
-    SoundFlowService.getUser(userId)
-        .then(data => console.log(data))
 
-    const username = "SlavchikWB"
-    const countOfTracks = 230
-    const countOfStreams = 234 
-    const countOfPlaylists = 11
 
     return (
         <SidebarTemplate>
             <div className="user-audio">
                 
-                <div className="user-info">
-                
-                    <div className="user-info__main">
-                        <img src={slava}/>
-                        <Button>
-                            Follow
-                        </Button>
-                    </div>
-
-                    <div className="user-info__text">
-                        <span>{username}</span>
-                        <span>{countOfTracks} tracks,
-                        <br/> {countOfPlaylists} playlists,
-                        <br/> {countOfStreams} streams </span>
-                    </div>
-                    
-
-                </div>
+                <UserInfo userId={userId}/>
 
                 <div className="user-audio__user-playlists">
                 
