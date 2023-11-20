@@ -1,30 +1,9 @@
-import { useContext } from "react"
+import useHttp from '../../hooks/http.hook'
 
-import { AuthContext } from "../../context"
-
-import { API_BASE_URL } from "../../constants"
 
 const useSoundFlowService = () => {
 
-    const {authTokens} = useContext(AuthContext)
-
-    const _send_get = async (route) => {
-
-
-        const response = await fetch(
-            API_BASE_URL + route,
-            {
-                method: "GET",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${authTokens.access}`
-                },
-                body: null
-            }
-        )
-
-        return response
-    }
+    const {sendGet} = useHttp();
 
     const _transformUser = (data) => {
         
@@ -45,7 +24,7 @@ const useSoundFlowService = () => {
 
     const getUser = async (userId) => {
 
-        const response = await _send_get(`/users/${userId}`)
+        const response = await sendGet(`/users/${userId}`)
 
         if (response.status === 200) {
             let data = await response.json()
