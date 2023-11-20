@@ -14,7 +14,10 @@ class User(AbstractUser):
     followers = models.ManyToManyField(to='accounts.User', verbose_name='Users who follows the user')
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ['password, username']
+    REQUIRED_FIELDS = ['password', 'username']
+
+    def __str__(self):
+        return self.email + f'[{self.id}]'
 
 
 class UserImage(models.Model):
