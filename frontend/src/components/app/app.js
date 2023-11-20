@@ -11,6 +11,7 @@ import "./app.scss"
 function App() {
 
   return (
+    <CSRFProvider>
       <Router>
         <div className="app">
             <AuthProvider>
@@ -29,6 +30,7 @@ function App() {
             </AuthProvider>
         </div>
       </Router>
+    </CSRFProvider>
   );
 }
 

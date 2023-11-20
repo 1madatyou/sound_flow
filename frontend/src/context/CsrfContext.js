@@ -12,7 +12,7 @@ const CSRFProvider = ({children}) => {
     useEffect(() =>
         {
             const getCSRFToken = async () => {
-                axios.get(API_BASE_URL + '/api/v1/csrf_token',
+                axios.get(API_BASE_URL + '/csrf_token',
                     { withCredentials: true }
                     )
                     .then(response => {

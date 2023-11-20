@@ -1,13 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+
+import { AuthContext } from '../../context'
 
 import Button from '../button/button'
 
 import SoundFlowService from '../../services/soundFlowService/base'
 
-import './userInfo.scss';
+import defaultUserImage from '../../resources/img/user-image.png'
+import './userInfo.scss'
+
 
 
 const UserInfo = ({userId}) => {
+
+    const {currentUserId} = useContext(AuthContext)
 
     const [userInfo, setUserInfo] = useState({})
 
@@ -19,33 +25,41 @@ const UserInfo = ({userId}) => {
         }, [userId]
     )
     
-    console.log(userInfo)
 
     return (
-        <View data={userInfo}/>
+        <View data={userInfo} currentUserId={currentUserId}/>
     );
-
-
+    
 }
 
-const View = ({data}) => {
+const View = ({data, currentUserId}) => {
 
-    const {username, countOfPlaylists, countOfStreams, countOfTracks} = data
+    const {id, username, countOfFollowers, countOfStreams, image} = data
+    console.log(id)
 
     return (
         <div className="user-info">
                 
             <div className="user-info__main">
-                <img alt='234'/>
-                <Button>
-                    Follow
-                </Button>
+                <img className='user-info__img'
+                     src={image ? image :  defaultUserImage }/>
+
+                {id === currentUserId ? 
+                    <Button>
+                        Edit
+                    </Button>
+                    :
+                    <Button>
+                        Follow
+                    </Button>
+                }
+                
+
             </div>
 
             <div className="user-info__text">
                 <span>{username}</span>
-                <span>{countOfTracks} tracks,
-                <br/> {countOfPlaylists} playlists,
+                <span>{countOfFollowers} followers,
                 <br/> {countOfStreams} streams </span>
             </div>
     

@@ -4,14 +4,16 @@ class SoundFlowService {
 
     static _transformUser = async (data) => {
         
-        const {username, following, statistic} = data
-    
+        const {id, username, following, statistic, image} = data
         const result = {
+            id: id,
             username: username,
             following: following,
             countOfTracks: statistic.count_of_tracks,
             countOfStreams: statistic.count_of_streams,
-            countOfPlaylists: statistic.count_of_playlists
+            countOfPlaylists: statistic.count_of_playlists,
+            countOfFollowers: statistic.count_of_followers,
+            image: image && image.image
         }
 
         return result

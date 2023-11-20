@@ -11,21 +11,18 @@ function Header() {
 
     const navigate = useNavigate()
 
-    const {user, logoutUser} = useContext(AuthContext)
+    const {currentUserId, logoutUser} = useContext(AuthContext)
     const {switchModalActive} = useContext(ModalContext)
 
-    const userId = user && user.user_id
-
-    const sideButtons = user ? 
+    const sideButtons = currentUserId ? 
     (   
         <> 
-            <Button onClick={() => navigate(`/users/${userId}`)}> My profile</Button> 
+            <Button onClick={() => navigate(`/users/${currentUserId}`)}> My profile</Button> 
             <Button onClick={logoutUser}>Leave</Button> 
         </>
     ) 
     : 
         <Button onClick={() => switchModalActive("AuthForm")}>Sign in</Button>;
-
         
     return (
         <header className="header">
