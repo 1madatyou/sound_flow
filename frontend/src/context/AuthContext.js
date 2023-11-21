@@ -78,17 +78,15 @@ export const AuthProvider = ({children}) => {
         })
 
         const data = await response.json()
-
-        console.log(`Получили ответ со статусом ${response.status} и данными`)
         console.log(data)
 
-        if (response.status === 200) {
-            setAuthTokens({...authTokens, access: data.access})
-            setUser(jwtDecode(data.access))
-            localStorage.setItem('authTokens', JSON.stringify(data))
 
-            console.log(`Обновили токены:`)
-            console.log(authTokens)
+        if (response.status === 200) {
+            const newAuthTokens ={...authTokens, access: data.access}
+            setAuthTokens(newAuthTokens)
+            setUser(jwtDecode(data.access))
+            localStorage.setItem('authTokens', JSON.stringify(newAuthTokens))
+
         } else {
             logoutUser()
         }
@@ -96,14 +94,19 @@ export const AuthProvider = ({children}) => {
 
     }
 
+    useEffect(() => {
+        if(authTokens){
+            updateToken().then(() => console.log('Update token from mount'))
+        }
+    }, [])
+
     useEffect(()=>{
         const REFRESH_INTERVAL = 1000 * 60 * 4
-        // const REFRESH_INTERVAL = 1000 * 5
 
-        let interval = setInterval(()=>{
+        let interval = setInterval(() => {
             if(authTokens){
-                updateToken()
-                console.log('update token')
+                updateToken().then(() => console.log('Update token'))
+                
             }
         }, REFRESH_INTERVAL)
 
