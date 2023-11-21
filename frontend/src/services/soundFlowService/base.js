@@ -3,7 +3,7 @@ import useHttp from '../../hooks/http.hook'
 
 const useSoundFlowService = () => {
 
-    const {sendGet} = useHttp();
+    const {sendGet, sendDelete, sendPost} = useHttp();
 
     const _transformUser = (data) => {
         
@@ -32,8 +32,31 @@ const useSoundFlowService = () => {
         } 
     }
 
+    const followUser = async(userId) => {
+        const response = await sendPost(`/users/${userId}/follow`)
+        
+        if (response.status === 200) {
+            let data = await response.json()
+            return _transformUser(data)
+        } 
+
+    }
+    
+    const unfollowUser = async(userId) => {
+        const response = await sendDelete(`/users/${userId}/follow`)
+
+        if (response.status === 200) {
+            let data = await response.json()
+            return _transformUser(data)
+        } 
+    }
+
     let context = {
         getUser,
+
+        followUser,
+        unfollowUser
+
     }
     
     return context;

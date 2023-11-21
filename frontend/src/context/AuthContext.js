@@ -104,7 +104,6 @@ export const AuthProvider = ({children}) => {
             if(authTokens){
                 updateToken()
                 console.log('update token')
-
             }
         }, REFRESH_INTERVAL)
 

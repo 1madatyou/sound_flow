@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../context'
 
 import Button from '../button/button'
+import FollowButton from '../followButton/followButton'
 
 import useSoundFlowService from '../../services/soundFlowService/base'
 
@@ -29,30 +30,28 @@ const UserInfo = ({userId}) => {
     
 
     return (
-        <View data={userInfo} currentUserId={currentUserId}/>
+        <View userInfo={userInfo} setUserInfo={setUserInfo} currentUserId={currentUserId}/>
     );
     
 }
 
-const View = ({data, currentUserId}) => {
+const View = ({userInfo, setUserInfo, currentUserId}) => {
 
-    const {id, username, countOfFollowers, countOfStreams, image} = data
-
+    const {id, username, countOfFollowers, countOfStreams, image} = userInfo
+    
     return (
         <div className="user-info">
                 
             <div className="user-info__main">
                 <img className='user-info__img'
-                     src={image ? image :  defaultUserImage }/>
+                     src={image ? image :  defaultUserImage}/>
 
                 {id === currentUserId ? 
                     <Button>
                         Edit
                     </Button>
                     :
-                    <Button>
-                        Follow
-                    </Button>
+                    <FollowButton userInfo={userInfo} setUserInfo={setUserInfo} currentUserId={currentUserId}/>
                 }
                 
 

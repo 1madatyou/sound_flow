@@ -31,8 +31,40 @@ const useHttp = () => {
         return response
     }
 
+    const sendPost = async (route, body) => {
+
+        const response = await fetch(
+            API_BASE_URL + route,
+            {
+                method: "POST",
+                headers: requestHeaders,
+                body: JSON.stringify(body),
+                credentials: 'include'
+            },
+        )
+
+        return response
+    }
+
+    const sendDelete = async (route, body) => {
+
+        const response = await fetch(
+            API_BASE_URL + route,
+            {
+                method: "Delete",
+                headers: requestHeaders,
+                body: JSON.stringify(body),
+                credentials: 'include'
+            },
+        )
+
+        return response
+    }
+
     return {
-        sendGet
+        sendGet,
+        sendPost,
+        sendDelete
     }
 }
 
