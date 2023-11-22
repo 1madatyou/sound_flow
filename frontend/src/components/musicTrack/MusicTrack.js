@@ -10,7 +10,7 @@ const MusicTrack = ({name, author, img}) => {
         
             <div className="track__content-wrapper">
 
-                <img className="track__image" src={nle}/>
+                <img className="track-image" src={nle}/>
 
                 <div className="track__text-content-wrapper">
                     <span className="track__name">

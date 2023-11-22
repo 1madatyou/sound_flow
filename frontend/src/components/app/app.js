@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import PrivateRoute from "../routes/PrivateRoute"
-import { AuthProvider, CSRFProvider, ModalProvider } from "../../context";
+import { AuthProvider, CSRFProvider, ModalProvider, MusicProvider } from "../../context";
 
 import { HomePage, UserAudioPage} from "../pages";
 
@@ -15,18 +15,20 @@ function App() {
       <Router>
         <div className="app">
             <AuthProvider>
-              <ModalProvider>
-                <Routes>
+              <MusicProvider>
+                <ModalProvider>
+                  <Routes>
 
-                  <Route path="/home" element={<HomePage/>}/>
+                    <Route path="/home" element={<HomePage/>}/>
 
-                  <Route exact path="/users/:userId" element={<PrivateRoute component={<UserAudioPage/>}/>}/>
+                    <Route exact path="/users/:userId" element={<PrivateRoute component={<UserAudioPage/>}/>}/>
 
-                  <Route path="*" element={ <Navigate to="/home" /> }/>
-                    
+                    <Route path="*" element={ <Navigate to="/home" /> }/>
+                      
 
-                </Routes>
-              </ModalProvider>
+                  </Routes>
+                </ModalProvider>
+              </MusicProvider>
             </AuthProvider>
         </div>
       </Router>

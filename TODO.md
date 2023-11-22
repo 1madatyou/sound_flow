@@ -23,6 +23,7 @@
    - [ ] Разработать функционал страницы UserProfile
       - [x] Получение данных UserInfo
       - [x] FollowButton
+      - [ ] Прослушивание музыки
       - [ ] EditButton
       - [x] Вынести в отдельные компоненты TrackList, PlaylistList
    

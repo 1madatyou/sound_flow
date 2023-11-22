@@ -7,13 +7,12 @@ const SidebarTemplate = ({children}) => {
     return (
         <>
             <Header/>
-                <main>
-                    <div className="wrapper">
-                        <MenuBar/>
-                        {children}
-                    </div>
-                </main>
-            <Footer/>
+            <main>
+                <div className="wrapper">
+                    <MenuBar/>
+                    {children}
+                </div>
+            </main>
         </>
     );
 }
