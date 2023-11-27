@@ -22,6 +22,17 @@ const useSoundFlowService = () => {
         return result
     }
 
+    const _transformTrack = (data) => {
+        const {id, name, author, file, image} = data
+        return {
+            id,
+            name,
+            author,
+            file,
+            image
+        }
+    }
+
     const getUser = async (userId) => {
 
         const response = await sendGet(`/users/${userId}`)
@@ -30,6 +41,17 @@ const useSoundFlowService = () => {
             let data = await response.json()
             return _transformUser(data)            
         } 
+    }
+
+    const getUserTracks = async (userId) => {
+
+        const response = await sendGet(`/users/${userId}/tracks`)
+
+        if (response.status === 200) {
+            let data = await response.json()
+            return data.map(item => _transformTrack(item))         
+        }
+
     }
 
     const followUser = async(userId) => {
@@ -53,6 +75,7 @@ const useSoundFlowService = () => {
 
     let context = {
         getUser,
+        getUserTracks,
 
         followUser,
         unfollowUser

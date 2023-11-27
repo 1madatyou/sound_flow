@@ -2,7 +2,7 @@ import "./musicTrack.scss"
 import nle from "../../resources/img/nle.jpg"
 
 
-const MusicTrack = ({name, author, img}) => {
+const MusicTrack = ({name, author, image}) => {
 
 
     return (
@@ -10,7 +10,7 @@ const MusicTrack = ({name, author, img}) => {
         
             <div className="track__content-wrapper">
 
-                <img className="track-image" src={nle}/>
+                <img className="track-image" src={image}/>
 
                 <div className="track__text-content-wrapper">
                     <span className="track__name">

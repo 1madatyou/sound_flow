@@ -6,4 +6,4 @@ from .models import Track
 class TrackSerializer(ModelSerializer):
     class Meta:
         model = Track
-        fields = '__all__'
+        fields = ('id', 'name', 'author', 'image', 'file')

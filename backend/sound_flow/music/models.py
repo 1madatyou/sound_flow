@@ -6,7 +6,7 @@ class Track(models.Model):
 
     name = models.CharField(max_length=255)
     author = models.ForeignKey(verbose_name='User who uploaded the track', to='accounts.User', on_delete=models.CASCADE)
-    image = models.FileField(null=True)
+    image = models.FileField(null=True, upload_to='track_images')
     file = models.FileField()
     duration = models.IntegerField(verbose_name='Track duration in seconds')
     weight = models.IntegerField(verbose_name='Track weight in KB')

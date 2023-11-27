@@ -1,20 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MusicTrack from "../musicTrack/MusicTrack"
 
 import "./userTrackList.scss"
+import useSoundFlowService from "../../services/soundFlowService/base";
 
 
-const UserTrackList = () => {
+const UserTrackList = ({userId}) => {
 
-    const {userTrackList, setUserTrackList} = useState([]);
+    const [userTracks, setUserTracks] = useState([]);
+    const {getUserTracks} = useSoundFlowService()
+    console.log(userTracks)
+    useEffect(() => {
+        getUserTracks(userId)
+            .then((result) => setUserTracks(result)) 
+    }, [userId])
 
     return (
-        <View trackList={userTrackList}/>
+        <View tracks={userTracks}/>
     )
 }
 
 
-const View = ({trackList}) => {
+const View = ({tracks}) => {
+
+    const trackList = tracks.map(track => {
+        return (
+            <MusicTrack name={track.name} author={track.author} image={track.image}/>
+        )
+    })
 
     return (
         <div className="track-list">
@@ -22,11 +35,7 @@ const View = ({trackList}) => {
             <span>Tracks</span>
             
             <div className="tracks">
-                <MusicTrack name="biggie" author="choppa"/>
-                <MusicTrack name="biggie" author="choppa"/>
-                <MusicTrack name="biggie" author="choppa"/>
-                <MusicTrack name="biggie" author="choppa"/>
-                <MusicTrack name="biggie" author="choppa"/>
+                {trackList}
             </div>
                     
         </div>

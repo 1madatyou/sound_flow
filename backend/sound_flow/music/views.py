@@ -22,10 +22,7 @@ class UserTracksView(APIView):
         if not len(user_tracks):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serilizer = TrackSerializer(user_tracks, many=True)
-
-        if not serilizer.is_valid():
-            return Response(status=status.HTTP_404_NOT_FOUND)
+        serilizer = TrackSerializer(user_tracks, many=True, context={'request': request})
         
         return Response(
             data=serilizer.data,
