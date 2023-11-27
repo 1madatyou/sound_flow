@@ -1,4 +1,17 @@
 
+.volume-controls-wrapper {
+
+    position: relative;
+
+    &:hover {
+
+        & .volume-range-slider {
+            opacity: 1;
+        }
+
+    }
+
+}
 
 .volume-btn {
     width: 24;
@@ -10,4 +23,7 @@
     border: none;
 
     cursor: pointer;
+
+
 }
+

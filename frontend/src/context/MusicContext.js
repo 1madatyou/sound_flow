@@ -11,7 +11,7 @@ const MusicProvider = ({children}) => {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTrack, setCurrentTrack] = useState(null);
-    const [volume, setVolume] = useState(50);
+    const [volume, setVolume] = useState(0.5);
 
     const pauseTrack = () => {
         musicBarRef.current.audioEl.current.pause()
@@ -25,15 +25,24 @@ const MusicProvider = ({children}) => {
 
     useEffect(() => {
         if (musicBarRef.current) {
+            musicBarRef.current.audioEl.current.volume = volume
             playTrack()
         }
     }, [currentTrack])
+
+    useEffect(() => {
+        if (!!musicBarRef.current) {
+            musicBarRef.current.audioEl.current.volume = volume
+        }
+      }, [musicBarRef, volume])
 
     let contextData = {
         currentTrack,
         setCurrentTrack,
 
+
         volume,
+        setVolume,
 
         isPlaying,
         setIsPlaying,

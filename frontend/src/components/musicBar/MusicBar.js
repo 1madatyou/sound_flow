@@ -25,7 +25,6 @@ const MusicBar = () => {
                     src={currentTrack.file}
                     controls
                     ref={musicBarRef}
-
                 />
                 <img className="track-image track-image--small" src={currentTrack.image} />
                 <PlayButton/>
