@@ -1,12 +1,33 @@
+import { useContext } from "react"
+import MusicContext from "../../context/MusicContext"
+
 import "./musicTrack.scss"
-import nle from "../../resources/img/nle.jpg"
 
 
-const MusicTrack = ({name, author, image}) => {
+const MusicTrack = ({track}) => {
 
+    const {name, image, author} = track
+
+    const {currentTrack,
+           setCurrentTrack,
+
+           isPlaying,
+
+           playTrack,
+           pauseTrack
+        } = useContext(MusicContext)
+
+    const onClick = () => {
+        if (currentTrack != track) {
+            setCurrentTrack(track)
+        } else {
+            {isPlaying ? pauseTrack() : playTrack()}
+        }
+
+    }
 
     return (
-        <div className="track">
+        <div className="track" onClick={onClick}>
         
             <div className="track__content-wrapper">
 

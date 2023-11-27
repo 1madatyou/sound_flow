@@ -10,25 +10,24 @@ import VolumeButton from "./volume-button/VolumeButton";
 import PreviousTrackButton from "./previous-track-button/PreviousTrackButton";
 import NextTrackButton from "./next-track-button/NextTrackButton";
 
-import track from "../../resources/choppa.mp3"
 import "./musicBar.scss"
 
 
 const MusicBar = () => {
 
-    const {musicBarRef} = useContext(MusicContext);
+    const {musicBarRef, currentTrack} = useContext(MusicContext);
     const {isOpened, setIsOpened} = useState(false);
 
     return (
         <div className="wrapper">
             <div className="music-bar">
                 <ReactAudioPlayer
-                    src={track}
+                    src={currentTrack.file}
                     controls
                     ref={musicBarRef}
 
                 />
-                <img className="track-image track-image--small" src={nle} />
+                <img className="track-image track-image--small" src={currentTrack.image} />
                 <PlayButton/>
                 <VolumeButton/>
             </div>

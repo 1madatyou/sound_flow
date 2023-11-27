@@ -9,7 +9,7 @@ const UserTrackList = ({userId}) => {
 
     const [userTracks, setUserTracks] = useState([]);
     const {getUserTracks} = useSoundFlowService()
-    console.log(userTracks)
+    
     useEffect(() => {
         getUserTracks(userId)
             .then((result) => setUserTracks(result)) 
@@ -25,7 +25,7 @@ const View = ({tracks}) => {
 
     const trackList = tracks.map(track => {
         return (
-            <MusicTrack name={track.name} author={track.author} image={track.image}/>
+            <MusicTrack track={track}/>
         )
     })
 

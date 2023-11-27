@@ -30,7 +30,7 @@ const RegForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch(API_BASE_URL + '/api/v1/registration',
+        const response = await fetch(API_BASE_URL + '/registration',
             {
                 method: 'POST',
                 headers: {
