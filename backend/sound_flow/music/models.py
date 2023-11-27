@@ -5,7 +5,8 @@ from django.utils import timezone
 class Track(models.Model):
 
     name = models.CharField(max_length=255)
-    author = models.ForeignKey(verbose_name='User who uploaded the track', to='accounts.User', on_delete=models.CASCADE)
+    author = models.CharField(max_length=255, default='Radmir Askarov')
+    uploader = models.ForeignKey(verbose_name='User who uploaded the track', to='accounts.User', on_delete=models.CASCADE)
     image = models.FileField(null=True, upload_to='track_images')
     file = models.FileField()
     duration = models.IntegerField(verbose_name='Track duration in seconds')
@@ -16,7 +17,7 @@ class Track(models.Model):
     upload_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.author.username + ' - ' + self.name
+        return self.author + ' - ' + self.name
 
 class Playlist(models.Model):
 
