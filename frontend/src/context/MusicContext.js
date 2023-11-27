@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 
 import MusicBar from "../components/musicBar/MusicBar";
 
@@ -7,20 +7,26 @@ const MusicContext = createContext();
 
 const MusicProvider = ({children}) => {
 
-    const {isPlaying, setIsPlaying} = useState(false);
-    const {currentTrack, setCurrentTrack} = useState();
-    const {volume, setVolume} = useState(50);
+    const musicBarRef = useRef(null); 
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentTrack, setCurrentTrack] = useState();
+    const [volume, setVolume] = useState(50);
 
     let contextData = {
         currentTrack,
         volume,
-        isPlaying
+
+        isPlaying,
+        setIsPlaying,
+
+        musicBarRef
     }
 
     return (
         <MusicContext.Provider value={contextData} >
             {children}
-            <MusicBar></MusicBar>
+            <MusicBar ref={musicBarRef}></MusicBar>
         </MusicContext.Provider>
     )
 

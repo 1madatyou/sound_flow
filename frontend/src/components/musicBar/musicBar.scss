@@ -17,6 +17,10 @@
 
     transition: padding 1s;
 
+    & audio {
+        display: none   ;
+    }
+
     &:hover {
         padding-top: 40px;
 

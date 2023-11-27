@@ -1,17 +1,27 @@
+import { useContext } from "react";
 import nle from "../../resources/img/nle.jpg"
-import play from "../../resources/img/icons/play.png"
-import pause from "../../resources/img/icons/pause.png"
-import volume from "../../resources/img/icons/volume.png"
 
+import ReactAudioPlayer from 'react-audio-player';
+
+import MusicContext from "../../context/MusicContext";
+
+import track from "../../resources/choppa.mp3"
 import "./musicBar.scss"
 
 
 const MusicBar = () => {
-    
+
+    const {musicBarRef} = useContext(MusicContext);
 
     return (
         <div className="wrapper">
             <div className="music-bar">
+                <ReactAudioPlayer
+                    src={track}
+                    controls
+                    ref={musicBarRef}
+
+                />
                 <img className="track-image track-image--small" src={nle} />
                 <PlayButton/>
                 <VolumeButton/>
@@ -23,8 +33,26 @@ const MusicBar = () => {
 export default MusicBar;
 
 const PlayButton = () => {
-    return (
-        <button className="music-bar__pause-btn">
+
+    const {isPlaying, setIsPlaying, musicBarRef} = useContext(MusicContext);
+
+    const onClick = () => {
+        if (!isPlaying) {
+            musicBarRef.current.audioEl.current.play()
+        } else {
+            musicBarRef.current.audioEl.current.pause()
+        }
+        setIsPlaying(!isPlaying)
+    }
+    
+    const Pause = () => {
+        return (
+            <svg height="24px" width="24px" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g><path d="M224,435.8V76.1c0-6.7-5.4-12.1-12.2-12.1h-71.6c-6.8,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6   C218.6,448,224,442.6,224,435.8z"/><path d="M371.8,64h-71.6c-6.7,0-12.2,5.4-12.2,12.1v359.7c0,6.7,5.4,12.2,12.2,12.2h71.6c6.7,0,12.2-5.4,12.2-12.2V76.1   C384,69.4,378.6,64,371.8,64z"/></g></svg>
+        )
+    }
+
+    const Play = () => {
+       return (
             <svg  fill="#000000" height="24px" width="24px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512">
                 <g>
@@ -35,6 +63,12 @@ const PlayButton = () => {
                     </g>
                 </g>
             </svg>
+       )
+    }
+
+    return (
+        <button className="music-bar__pause-btn" onClick={onClick}>
+            {isPlaying ? <Pause/> : <Play/> }
         </button>
     )
 }
