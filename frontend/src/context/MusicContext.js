@@ -11,7 +11,9 @@ const MusicProvider = ({children}) => {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTrack, setCurrentTrack] = useState(null);
-    const [volume, setVolume] = useState(0.5);
+
+    const [volume, setVolume] = useState(0.3);
+    const [isMuted, setIsMuted] = useState(false);
 
     const pauseTrack = () => {
         musicBarRef.current.audioEl.current.pause()
@@ -23,6 +25,17 @@ const MusicProvider = ({children}) => {
         setIsPlaying(true)
     }
 
+    // For muting a volume
+    useEffect(() => {
+        if (musicBarRef.current) {
+            musicBarRef.current.audioEl.current.volume = 0
+            if (!isMuted) {
+                musicBarRef.current.audioEl.current.volume = volume
+            }
+        }
+    }, [isMuted])
+
+    // For track switch
     useEffect(() => {
         if (musicBarRef.current) {
             musicBarRef.current.audioEl.current.volume = volume
@@ -30,19 +43,22 @@ const MusicProvider = ({children}) => {
         }
     }, [currentTrack])
 
+    // For pass volume state into volume attr of audio tag while track or volume change
     useEffect(() => {
-        if (!!musicBarRef.current) {
+        if (musicBarRef.current) {
             musicBarRef.current.audioEl.current.volume = volume
         }
-      }, [musicBarRef, volume])
+      }, [musicBarRef.current, volume])
 
     let contextData = {
         currentTrack,
         setCurrentTrack,
 
-
         volume,
         setVolume,
+
+        isMuted,
+        setIsMuted,
 
         isPlaying,
         setIsPlaying,

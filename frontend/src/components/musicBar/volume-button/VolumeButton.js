@@ -1,12 +1,17 @@
+import { useContext } from "react";
+import MusicContext from "../../../context/MusicContext";
 import VolumeRangeSlider from "../volume-range-slider/VolumeRangeSlider";
 
 import "./volume-button.scss"
 
 
 const VolumeButton = () => {
+
+    const {isMuted, setIsMuted} = useContext(MusicContext);
+
     return (
         <div className="volume-controls-wrapper">
-            <button className="volume-btn">
+            <button className="volume-btn" onClick={() => setIsMuted(!isMuted)}>
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     width="24px" height="24px" viewBox="0 0 475.082 475.081" 
                     >

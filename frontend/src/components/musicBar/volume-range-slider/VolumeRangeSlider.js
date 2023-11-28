@@ -5,7 +5,8 @@ import "./volume-range-slider.scss"
 
 
 const VolumeRangeSlider = () => {
-  const {volume, setVolume} = useContext(MusicContext)
+  const {volume, setVolume, isMuted} = useContext(MusicContext)
+
 
   const onChange = (e) => {
     setVolume(e.target.valueAsNumber)
@@ -18,7 +19,7 @@ const VolumeRangeSlider = () => {
         min={0}
         max={1}
         step={0.05}
-        value={volume}
+        value={isMuted ? 0 : volume}
         onChange={onChange}
       />
     </div>
