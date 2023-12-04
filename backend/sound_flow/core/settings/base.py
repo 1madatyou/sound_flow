@@ -15,7 +15,11 @@ SECRET_KEY = 'django-insecure-o2hs=jsh6n67#sd5-xs75)(eq-rg^9*8hk9mry$%#vy(do-bge
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    os.getenv('API_DOMAIN_NAME')
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -125,4 +129,5 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
     "http://localhost:8000",
+    f"http://{os.getenv('DOMAIN_NAME')}",
 ]
