@@ -15,16 +15,15 @@ class UserTracksView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
-        user_id = kwargs.pop('user_id')
+        user_id = kwargs.pop("user_id")
         user = User.objects.get(id=user_id)
         user_tracks = user.tracks.all()
 
         if not len(user_tracks):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serilizer = TrackSerializer(user_tracks, many=True, context={'request': request})
-        
-        return Response(
-            data=serilizer.data,
-            status=status.HTTP_200_OK)
-    
+        serilizer = TrackSerializer(
+            user_tracks, many=True, context={"request": request}
+        )
+
+        return Response(data=serilizer.data, status=status.HTTP_200_OK)

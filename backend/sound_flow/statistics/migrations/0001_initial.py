@@ -15,14 +15,28 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='UserStatistic',
+            name="UserStatistic",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('count_of_tracks', models.IntegerField(default=0)),
-                ('count_of_playlists', models.IntegerField(default=0)),
-                ('count_of_streams', models.IntegerField(default=0)),
-                ('count_of_followers', models.IntegerField(default=0)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("count_of_tracks", models.IntegerField(default=0)),
+                ("count_of_playlists", models.IntegerField(default=0)),
+                ("count_of_streams", models.IntegerField(default=0)),
+                ("count_of_followers", models.IntegerField(default=0)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

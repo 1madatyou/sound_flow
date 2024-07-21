@@ -16,25 +16,74 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Track',
+            name="Track",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('file', models.FileField(upload_to='')),
-                ('duration', models.IntegerField(verbose_name='Track duration in seconds')),
-                ('weight', models.IntegerField(verbose_name='Track weight in KB')),
-                ('upload_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='User who uploaded the track')),
-                ('streams', models.ManyToManyField(related_name='streams', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("file", models.FileField(upload_to="")),
+                (
+                    "duration",
+                    models.IntegerField(verbose_name="Track duration in seconds"),
+                ),
+                ("weight", models.IntegerField(verbose_name="Track weight in KB")),
+                (
+                    "upload_date",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="User who uploaded the track",
+                    ),
+                ),
+                (
+                    "streams",
+                    models.ManyToManyField(
+                        related_name="streams", to=settings.AUTH_USER_MODEL
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Playlist',
+            name="Playlist",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('creation_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('creator', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
-                ('tracks', models.ManyToManyField(to='music.track', verbose_name='Tracks in the playlist')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "creation_date",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
+                (
+                    "creator",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "tracks",
+                    models.ManyToManyField(
+                        to="music.track", verbose_name="Tracks in the playlist"
+                    ),
+                ),
             ],
         ),
     ]

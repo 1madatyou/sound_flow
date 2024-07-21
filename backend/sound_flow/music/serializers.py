@@ -8,4 +8,4 @@ class TrackSerializer(ModelSerializer):
 
     class Meta:
         model = Track
-        fields = ('id', 'name', 'author', 'image', 'file')
+        fields = ("id", "name", "author", "image", "file")

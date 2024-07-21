@@ -10,9 +10,9 @@ class RegistrationForm(forms.Form):
     def clean(self):
         cd = self.cleaned_data
 
-        if cd['password'] != cd['password2']:
+        if cd["password"] != cd["password2"]:
             raise forms.ValidationError("passwords_mismatch")
-        
+
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ["username", "email", "password"]

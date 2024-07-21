@@ -10,17 +10,45 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('statistics', '0001_initial'),
+        ("statistics", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='UserUpdate',
+            name="UserUpdate",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('reason', models.CharField(choices=[('TRACK_ADD', 'Track added'), ('TRACK_UPLOAD', 'Track uploaded'), ('PLAYLIST_CREATE', 'Playlist created'), ('FOLLOWING_START', 'Following started')], verbose_name='Reason of update, for example downloading a track')),
-                ('creation_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "reason",
+                    models.CharField(
+                        choices=[
+                            ("TRACK_ADD", "Track added"),
+                            ("TRACK_UPLOAD", "Track uploaded"),
+                            ("PLAYLIST_CREATE", "Playlist created"),
+                            ("FOLLOWING_START", "Following started"),
+                        ],
+                        verbose_name="Reason of update, for example downloading a track",
+                    ),
+                ),
+                (
+                    "creation_date",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

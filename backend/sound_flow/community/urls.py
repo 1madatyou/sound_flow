@@ -6,5 +6,5 @@ from .views import (
 
 
 urlpatterns = [
-    path('users/<int:user_id>/follow', UserFollowToggleAPIView.as_view()),
+    path("users/<int:user_id>/follow", UserFollowToggleAPIView.as_view()),
 ]

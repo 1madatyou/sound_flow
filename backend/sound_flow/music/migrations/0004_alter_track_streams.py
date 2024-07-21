@@ -8,13 +8,15 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('music', '0003_alter_track_streams'),
+        ("music", "0003_alter_track_streams"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='track',
-            name='streams',
-            field=models.ManyToManyField(blank=True, related_name='streams', to=settings.AUTH_USER_MODEL),
+            model_name="track",
+            name="streams",
+            field=models.ManyToManyField(
+                blank=True, related_name="streams", to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

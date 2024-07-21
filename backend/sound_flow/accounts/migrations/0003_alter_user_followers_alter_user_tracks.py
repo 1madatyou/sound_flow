@@ -7,19 +7,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('music', '0003_alter_track_streams'),
-        ('accounts', '0002_user_tracks'),
+        ("music", "0003_alter_track_streams"),
+        ("accounts", "0002_user_tracks"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='followers',
-            field=models.ManyToManyField(null=True, to=settings.AUTH_USER_MODEL, verbose_name='Users who follows the user'),
+            model_name="user",
+            name="followers",
+            field=models.ManyToManyField(
+                null=True,
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="Users who follows the user",
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='tracks',
-            field=models.ManyToManyField(null=True, to='music.track', verbose_name='Tracks which added by user'),
+            model_name="user",
+            name="tracks",
+            field=models.ManyToManyField(
+                null=True, to="music.track", verbose_name="Tracks which added by user"
+            ),
         ),
     ]

@@ -9,5 +9,3 @@ class UserRetrieveAPIView(RetrieveAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserInfoSerializer
     queryset = User.objects.all()
-
-    

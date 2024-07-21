@@ -7,4 +7,4 @@ class UserStatisticSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserStatistic
-        exclude = ('id', 'user')
+        exclude = ("id", "user")
